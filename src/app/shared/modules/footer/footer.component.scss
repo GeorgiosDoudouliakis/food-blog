@@ -1,0 +1,18 @@
+@import 'src/assets/scss/variables';
+@import 'src/assets/scss/mixins';
+
+footer {
+    @include flex(column, nowrap, center, center);
+    padding: 0.5rem 0;
+    background: $secondary-color;
+}
+
+p {
+    text-align: center;
+    color: $primary-color;
+}
+
+a {
+    color: #fff;
+    text-decoration: underline;
+}
