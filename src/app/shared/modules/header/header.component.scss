@@ -21,6 +21,12 @@ header {
     }
 }
 
+nav {
+    @media(max-width: 767px) {
+        display: none;
+    }
+}
+
 ul {
     @include flex(row, nowrap, flex-start, center);
     li {
@@ -49,4 +55,20 @@ a {
 .active {
     background: $primary-color;
     color: #fff;
+}
+
+.mobile-menu-icon {
+    @include flex(column, none, space-between, initial);
+    width: 30px;
+    height: 20px;
+    padding: 1rem 0;
+    cursor: pointer;
+    > div {
+        width: 100%;
+        height: 2px;
+        background: $primary-color;
+    }
+    @media(min-width: 768px) {
+        display: none;
+    }
 }
