@@ -3,7 +3,11 @@
 @import 'src/assets/scss/variables';
 
 header {
+    padding: 1rem 0;
     background-color: $secondary-color;
+    @media(min-width: 768px) {
+        padding: 0;
+    }
 }
 
 .container {
@@ -42,6 +46,7 @@ ul {
                     width: calc(100% - 1rem);
                     height: 7px;
                     background: $primary-color;
+                    z-index: 2;
                 }
             }
         }
@@ -61,7 +66,6 @@ a {
     @include flex(column, none, space-between, initial);
     width: 30px;
     height: 20px;
-    padding: 1rem 0;
     cursor: pointer;
     > div {
         width: 100%;
