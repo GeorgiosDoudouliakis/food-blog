@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { HeaderModule } from '@shared/modules/header/header.module';
 import { FooterModule } from '@shared/modules/footer/footer.module';
+import { GoTopModule } from '@shared/modules/go-top/go-top.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     SharedModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    GoTopModule
   ],
   providers: [],
   bootstrap: [AppComponent]
