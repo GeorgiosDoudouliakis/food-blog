@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from '@shared/services/title.service';
 
 @Component({
   selector: 'app-countries',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountriesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: TitleService) {
+    this.titleService.setTitle('Countries');
+  }
 
   ngOnInit(): void {
   }
