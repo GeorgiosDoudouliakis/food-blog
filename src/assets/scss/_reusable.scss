@@ -1,3 +1,5 @@
+@import './variables';
+
 .container {
     width: 90%;
     max-width: 1280px;
@@ -28,7 +30,20 @@
     @media(min-width: 1024px) {
         grid-template-columns: repeat(3, 1fr);
     }
-    @media(min-width: 1280px) {
-        grid-template-columns: repeat(4, 1fr);
+}
+
+.btn-primary {
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+    a {
+        font-size: 1.2rem;
+        padding: 0.3rem 0.8rem;
+        color: #fff;
+        background: $secondary-color;
+        transition: .4s ease-in-out;
+        &:hover {
+            background: $primary-color;
+            color: $secondary-color;
+        }
     }
 }
