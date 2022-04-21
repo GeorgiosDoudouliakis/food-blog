@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: () => import('./modules/categories/categories.module').then(m => m.CategoriesModule)
+  },
+  {
+    path: 'countries',
+    loadChildren: () => import('./modules/countries/countries.module').then(m => m.CountriesModule)
   }
 ];
 
