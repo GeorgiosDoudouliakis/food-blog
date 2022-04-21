@@ -1,5 +1,6 @@
 @import 'src/assets/scss/variables';
 @import 'src/assets/scss/mixins';
+@import 'src/assets/scss/reusable';
 
 :host {
     height: 100%;
@@ -48,21 +49,5 @@ img {
     @media(min-width: 768px) {
         top: 62.39px;
         height: calc(100vh - 139.17px);
-    }
-}
-
-button {
-    border: 2px solid $primary-color;
-    border-radius: 4px;
-    a {
-        font-size: 1.2rem;
-        padding: 0.3rem 0.8rem;
-        color: #fff;
-        background: $secondary-color;
-        transition: .4s ease-in-out;
-        &:hover {
-            background: $primary-color;
-            color: $secondary-color;
-        }
     }
 }
