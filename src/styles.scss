@@ -11,14 +11,21 @@ body {
     line-height: 1.9rem;
 }
 
+h2, h3 {
+    color: $primary-color;
+}
+
 h2 {
     font-size: 2rem;
     text-align: center;
-    color: $primary-color;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     @media(min-width: 1024px) {
         font-size: 2.5rem;
     }
+}
+
+h3 {
+    font-size: 1.8rem;
 }
 
 a {
