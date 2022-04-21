@@ -1,1 +1,10 @@
-<p>category works!</p>
+<article>
+    <h3>{{ category.strCategory }}</h3>
+    <img [src]="category.strCategoryThumb" [alt]="category.strCategory"/>
+    <div class="action-btns">
+        <button class="btn-secondary">Description</button>
+        <button class="btn-primary">
+            <a href="">Show Meals</a>
+        </button>    
+    </div>
+</article>

@@ -1,0 +1,33 @@
+@import 'src/assets/scss/variables';
+@import 'src/assets/scss/reusable';
+@import 'src/assets/scss/mixins';
+
+:host {
+    background: lighten($secondary-color, 5%);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+h3 {
+    text-align: center;
+    padding: 0.8rem 0;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+}
+
+h3, img {
+    margin-bottom: 1rem;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.action-btns {
+    @include flex(row, nowrap, flex-end, center);
+    > .btn-secondary {
+        margin-right: 0.8rem;
+    }
+}
