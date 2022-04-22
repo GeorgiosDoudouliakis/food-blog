@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TitleService } from '@shared/services/title.service';
+import { TitleService } from '@shared/services/title/title.service';
 
 @Component({
   selector: 'app-countries',
