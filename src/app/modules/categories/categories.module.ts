@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoriesService } from './services/categories.service';
-import { CategoryComponent } from './components/category/category.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
 
 const routes = [
   { 
@@ -15,7 +15,7 @@ const routes = [
 @NgModule({
   declarations: [
     CategoriesComponent,
-    CategoryComponent
+    CategoryCardComponent
   ],
   imports: [
     SharedModule,

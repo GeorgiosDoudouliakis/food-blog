@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { Category } from '../../models/categories.model';
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss'],
+  selector: 'app-category-card',
+  templateUrl: './category-card.component.html',
+  styleUrls: ['./category-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CategoryComponent implements OnInit {
+export class CategoryCardComponent implements OnInit {
   @Input() category: Category;
 
   constructor() { }
