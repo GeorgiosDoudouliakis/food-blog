@@ -25,12 +25,7 @@ img {
     height: 100%;
 }
 
-.action-btns {
-    @include flex(row, nowrap, flex-end, center);
-    > .btn-secondary {
-        margin-right: 0.8rem;
-    }
-    > .btn-secondary, a {
-        font-size: 1rem;
-    }
+.btn-primary {
+    display: block;
+    margin-left: auto;
 }
