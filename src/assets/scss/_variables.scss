@@ -1,5 +1,6 @@
 $primary-color: #F2712C;
 $secondary-color: #24292d;
+$bg-color: lighten($secondary-color, 5%);
 
 @font-face {
     font-family: LobsterRegular;
