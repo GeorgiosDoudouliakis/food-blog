@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '@shared/shared.module';
 import { CountriesComponent } from './components/countries/countries.component';
+import { CountryCardComponent } from './components/country-card/country-card.component';
+import { CountriesListService } from './services/countries-list.service';
 
 const routes = [
   {
@@ -11,13 +14,16 @@ const routes = [
 
 @NgModule({
   declarations: [
-    CountriesComponent
+    CountriesComponent,
+    CountryCardComponent
   ],
   imports: [
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [CountriesListService]
 })
 export class CountriesModule { }
