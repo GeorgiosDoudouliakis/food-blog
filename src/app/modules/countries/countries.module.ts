@@ -4,6 +4,7 @@ import { SharedModule } from '@shared/shared.module';
 import { CountriesComponent } from './components/countries/countries.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
 import { CountriesListService } from './services/countries-list.service';
+import { CardHoverDirective } from './directives/card-hover.directive';
 
 const routes = [
   {
@@ -15,7 +16,8 @@ const routes = [
 @NgModule({
   declarations: [
     CountriesComponent,
-    CountryCardComponent
+    CountryCardComponent,
+    CardHoverDirective
   ],
   imports: [
     RouterModule.forChild(routes),
