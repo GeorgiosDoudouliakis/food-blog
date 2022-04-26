@@ -1,4 +1,4 @@
-<article>
+<article class="card">
     <h3>{{ category.strCategory }}</h3>
     <img *ngIf="category.strCategoryThumb; else noImage" [src]="category.strCategoryThumb" [alt]="category.strCategory"/>
     <ng-template #noImage>
