@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoaderService } from '@shared/services/loader/loader.service';
-import { concatMap, finalize, Observable, of, pluck, shareReplay, tap } from 'rxjs';
+import { concatMap, finalize, map, Observable, of, pluck, shareReplay, tap } from 'rxjs';
 
 @Injectable()
 export class CountriesListService {
@@ -16,6 +16,7 @@ export class CountriesListService {
       tap(() => this.loaderService.loadingState(true)),
       concatMap(() => this.http.get<{ meals: { strArea: string }[] }>('https://www.themealdb.com/api/json/v1/1/list.php?a=list')),
       pluck('meals'),
+      map(meals => meals.filter(meal => meal.strArea !== 'Unknown')),
       finalize(() => this.loaderService.loadingState(false)),
       shareReplay()
     )
