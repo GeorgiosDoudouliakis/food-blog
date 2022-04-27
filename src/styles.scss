@@ -5,11 +5,18 @@ body {
 }
 
 * {
-    font-family: LobsterRegular;
     padding: 0;
     margin: 0;
     line-height: 1.9rem;
     scroll-behavior: smooth;
+}
+
+h1, h2, a {
+    font-family: LobsterRegular;
+}
+
+h3, p, span, li, button, button > a {
+    font-family: LatoRegular;
 }
 
 h2, h3 {
