@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-country-card',
@@ -9,9 +10,12 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 export class CountryCardComponent implements OnInit {
   @Input() country: { strArea: string };
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  navigateToCountryMeals(country: string) {
+    this.router.navigateByUrl(`/countries/${country.toLowerCase()}/meals`);
+  }
 }

@@ -15,7 +15,7 @@ export class CountryMealsService {
   getCountryMeals(country: string): Observable<Meal[]> {
     return of(null).pipe(
       tap(() => this.loaderService.loadingState(true)),
-      concatMap(() => this.http.get<{ meals: Meal[] }>(`www.themealdb.com/api/json/v1/1/filter.php?a=${country}`)),
+      concatMap(() => this.http.get<{ meals: Meal[] }>(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${country}`)),
       pluck('meals'),
       finalize(() => this.loaderService.loadingState(false)),
       shareReplay()

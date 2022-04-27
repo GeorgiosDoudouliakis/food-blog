@@ -1,4 +1,4 @@
-<article class="card" cardHover>
+<article class="card" role="link" (click)="navigateToCountryMeals(country.strArea)" cardHover>
     <div>
         <img src="/assets/images/countries/{{ country.strArea | lowercase }}_flag.jpg" alt="{{ country.strArea }} flag"/>
         <h3 class="py-1">{{ country.strArea }}</h3>
