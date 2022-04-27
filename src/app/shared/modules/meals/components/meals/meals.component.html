@@ -1,0 +1,6 @@
+<section class="container py-2">
+    <h2>{{ title | uppercase }} MEALS</h2>
+    <section class="grid">
+        <app-meal-card *ngFor="let meal of (meals$ | async)" [meal]="meal"></app-meal-card>
+    </section>
+</section>

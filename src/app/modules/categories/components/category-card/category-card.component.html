@@ -5,6 +5,6 @@
         <img src="/assets/images/empty_food_img.png" alt="" />
     </ng-template>
     <button class="btn-primary">
-        <a href="">Show Meals</a>
+        <a routerLink="/categories/{{ category.strCategory | lowercase }}/meals">Show Meals</a>
     </button>    
 </article>
