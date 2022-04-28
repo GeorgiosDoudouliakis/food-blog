@@ -14,7 +14,7 @@ const routes = [
     component: CountriesComponent
   },
   {
-    path: ':country/meals',
+    path: ':country',
     component: MealsComponent,
     data: {
       type: 'country'

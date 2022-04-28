@@ -16,6 +16,6 @@ export class CountryCardComponent implements OnInit {
   }
 
   navigateToCountryMeals(country: string) {
-    this.router.navigateByUrl(`/countries/${country.toLowerCase()}/meals`);
+    this.router.navigateByUrl(`/countries/${country.toLowerCase()}`);
   }
 }

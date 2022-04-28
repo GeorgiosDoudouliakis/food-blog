@@ -8,12 +8,12 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { MealsComponent } from '@shared/modules/meals/components/meals/meals.component';
 
 const routes = [
-  { 
+  {
     path: '',
     component: CategoriesComponent
   },
   {
-    path: ':category/meals',
+    path: ':category',
     component: MealsComponent,
     data: {
       type: 'category'
