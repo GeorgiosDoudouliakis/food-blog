@@ -16,9 +16,9 @@ export class MealsComponent implements OnInit {
   meals$: Observable<Meal[]>;
 
   constructor(
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     private injector: Injector
-  ) { 
+  ) {
     if(this.route.snapshot.data['type'] === 'category') {
       this.service = this.injector.get(CategoryMealsService);
     } else {
@@ -32,7 +32,7 @@ export class MealsComponent implements OnInit {
 
   get title(): string {
     const type = this.route.snapshot.data['type'];
-    return this.route.snapshot.params[type]; 
+    return this.route.snapshot.params[type];
   }
 
   private getMeals() {

@@ -1,1 +1,14 @@
 @import 'src/assets/scss/reusable';
+@import 'src/assets/scss/mixins';
+
+div {
+  @include flex(column, nowrap, space-between, center);
+  margin-bottom: 2rem;
+  @media(min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+button > a {
+  font-size: 1.2rem;
+}
