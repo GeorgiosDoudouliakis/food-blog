@@ -19,6 +19,13 @@ const routes = [
     data: {
       type: 'country'
     }
+  },
+  {
+    path: ':country/:meal',
+    loadChildren: () => import('../../shared/modules/meal/meal.module').then(m => m.MealModule),
+    data: {
+      type: 'countries'
+    }
   }
 ]
 

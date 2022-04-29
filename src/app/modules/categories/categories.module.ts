@@ -18,6 +18,13 @@ const routes = [
     data: {
       type: 'category'
     }
+  },
+  {
+    path: ':country/:meal',
+    loadChildren: () => import('../../shared/modules/meal/meal.module').then(m => m.MealModule),
+    data: {
+      type: 'categories'
+    }
   }
 ];
 

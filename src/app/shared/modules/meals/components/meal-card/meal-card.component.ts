@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Meal } from '@shared/models/meal.model';
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-meal-card',
@@ -7,12 +8,15 @@ import { Meal } from '@shared/models/meal.model';
   styleUrls: ['./meal-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MealCardComponent implements OnInit {
+export class MealCardComponent {
   @Input() meal: Meal;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
-  ngOnInit(): void {
+  navigateToMeal(meal: string): void {
+    this.router.navigate([meal], { relativeTo: this.route });
   }
-
 }
