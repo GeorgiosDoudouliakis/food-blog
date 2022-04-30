@@ -64,12 +64,21 @@
   }
 }
 
+#tags-container {
+  text-align: center;
+  @media(min-width: 768px) {
+    text-align: left;
+  }
+}
+
 .tag {
   padding: 0.3rem 0.5rem;
   color: $primary-color;
   background: $bg-color;
-  margin-right: 0.8rem;
   border-radius: 10px;
+  &:not(:last-of-type) {
+    margin-right: 0.8rem;
+  }
 }
 
 #instructions {

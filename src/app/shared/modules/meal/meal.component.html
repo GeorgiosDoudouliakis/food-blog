@@ -8,9 +8,11 @@
       <p>Category: {{ recipe?.strCategory }}</p>
       <p>Area: {{ recipe?.strArea }}</p>
       <a [href]="recipe?.strYoutube" target="_blank">YouTube Video Link</a>
-      <ng-container *ngFor="let tag of recipe?.strTags?.split(',')">
-        <span class="tag">{{ tag }}</span>
-      </ng-container>
+      <section id="tags-container">
+        <ng-container *ngFor="let tag of recipe?.strTags?.split(',')">
+          <span class="tag">{{ tag }}</span>
+        </ng-container>
+      </section>
       <button class="btn-secondary">Export Recipe as PDF</button>
     </div>
   </div>
