@@ -11,6 +11,7 @@
       <ng-container *ngFor="let tag of recipe?.strTags?.split(',')">
         <span class="tag">{{ tag }}</span>
       </ng-container>
+      <button class="btn-secondary">Export Recipe as PDF</button>
     </div>
   </div>
   <p id="instructions"><span>Description:</span> {{ recipe?.strInstructions }}</p>
