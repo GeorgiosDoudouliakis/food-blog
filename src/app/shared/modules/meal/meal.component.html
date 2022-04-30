@@ -1,1 +1,23 @@
-<p>meal works!</p>
+<section class="container py-2">
+  <div class="recipe-img-info-container">
+    <div class="meal-img-container">
+      <img [src]="recipe?.strMealThumb" [alt]="recipe?.strMeal" />
+    </div>
+    <div class="recipe-info">
+      <h2>{{ recipe?.strMeal }}</h2>
+      <p>Category: {{ recipe?.strCategory }}</p>
+      <p>Area: {{ recipe?.strArea }}</p>
+      <a [href]="recipe?.strYoutube" target="_blank">YouTube Video Link</a>
+      <ng-container *ngFor="let tag of recipe?.strTags?.split(',')">
+        <span class="tag">{{ tag }}</span>
+      </ng-container>
+    </div>
+  </div>
+  <p id="instructions"><span>Description:</span> {{ recipe?.strInstructions }}</p>
+  <h3>INGREDIENTS</h3>
+  <ul class="grid">
+    <ng-container *ngFor="let ingredient of ingredients; let i = index">
+        <li>{{ measures[i] }} {{ ingredient }}</li>
+    </ng-container>
+  </ul>
+</section>
