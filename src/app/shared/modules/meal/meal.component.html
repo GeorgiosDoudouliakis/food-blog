@@ -16,11 +16,13 @@
       <button class="btn-secondary" imgDownload [meal]="meal">Export Recipe as PNG</button>
     </div>
   </div>
-  <p id="instructions"><span>Description:</span> {{ recipe?.strInstructions }}</p>
-  <h3>INGREDIENTS</h3>
-  <ul class="grid">
-    <ng-container *ngFor="let ingredient of ingredients; let i = index">
+  <div id="instructions-ingredients-container">
+    <p id="instructions"><span>Instructions:</span> {{ recipe?.strInstructions }}</p>
+    <h3>INGREDIENTS</h3>
+    <ul class="grid">
+      <ng-container *ngFor="let ingredient of ingredients; let i = index">
         <li>{{ measures[i] }} {{ ingredient }}</li>
-    </ng-container>
-  </ul>
+      </ng-container>
+    </ul>
+  </div>
 </section>
