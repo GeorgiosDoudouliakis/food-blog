@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { concatMap, finalize, pluck, shareReplay, tap } from 'rxjs/operators';
+import { concatMap, finalize, pluck, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Categories, Category } from '../models/categories.model';
 import { LoaderService } from '@shared/services/loader/loader.service';
@@ -18,8 +18,7 @@ export class CategoriesService {
       tap(() => this.loaderService.loadingState(true)),
       concatMap(() => this.http.get<Categories>('https://www.themealdb.com/api/json/v1/1/categories.php')),
       pluck('categories'),
-      finalize(() => this.loaderService.loadingState(false)),
-      shareReplay(1)
+      finalize(() => this.loaderService.loadingState(false))
     )
   }
 }
