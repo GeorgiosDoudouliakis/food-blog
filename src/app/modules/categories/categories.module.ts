@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
+import { CommonModule} from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoriesService } from './services/categories.service';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
@@ -32,8 +33,9 @@ const routes = [
     CategoryCardComponent
   ],
   imports: [
-    SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    CommonModule,
+    HttpClientModule
   ],
   exports: [
     RouterModule

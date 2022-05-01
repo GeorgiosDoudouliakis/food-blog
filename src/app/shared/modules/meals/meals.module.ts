@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
-import { SharedModule } from '@shared/shared.module';
+import { CommonModule } from "@angular/common";
 import { MealsComponent } from './components/meals/meals.component';
 import { MealCardComponent } from './components/meal-card/meal-card.component';
 import { CategoryMealsService } from './services/category-meals/category-meals.service';
@@ -16,7 +16,7 @@ const routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
-    SharedModule
+    CommonModule
   ],
   declarations: [
     MealsComponent,
