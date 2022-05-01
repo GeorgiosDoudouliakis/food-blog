@@ -1,0 +1,28 @@
+@import 'src/assets/scss/reusable';
+@import 'src/assets/scss/variables';
+
+div {
+  margin-bottom: 1.5rem;
+}
+
+input {
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  background: $bg-color;
+  color: $primary-color;
+  border-radius: 4px;
+  &::placeholder {
+    color: #fff;
+  }
+  &:focus {
+    border-bottom: 1px solid $primary-color;
+  }
+}
+
+span {
+  font-size: 1.2rem;
+  display: block;
+  text-align: center;
+  color: #fff;
+}
