@@ -1,13 +1,10 @@
 <section class="container py-2">
     <h2>{{ title | uppercase }} MEALS</h2>
-    <div>
-      <app-meal-filter></app-meal-filter>
-      <button class="btn-primary" role="link">
-        <a routerLink="/{{ route.snapshot.data['type'] === 'category' ? 'categories' : 'countries' }}">
-          Go back to {{ route.snapshot.data['type'] === 'category' ? 'categories' : 'countries' }}
-        </a>
-      </button>
-    </div>
+    <button class="btn-primary" role="link">
+      <a routerLink="/{{ route.snapshot.data['type'] === 'category' ? 'categories' : 'countries' }}">
+        Go back to {{ route.snapshot.data['type'] === 'category' ? 'categories' : 'countries' }}
+      </a>
+    </button>
     <section class="grid">
         <app-meal-card *ngFor="let meal of (meals$ | async)" [meal]="meal"></app-meal-card>
     </section>
