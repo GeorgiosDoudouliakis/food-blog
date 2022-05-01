@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,13 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./country-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CountryCardComponent implements OnInit {
+export class CountryCardComponent {
   @Input() country: { strArea: string };
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   navigateToCountryMeals(country: string) {
     this.router.navigateByUrl(`/countries/${country.toLowerCase()}`);

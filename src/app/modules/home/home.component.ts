@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TitleService } from '@shared/services/title/title.service';
 
 @Component({
@@ -6,13 +6,9 @@ import { TitleService } from '@shared/services/title/title.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   constructor(private titleService: TitleService) {
     this.titleService.setTitle();
   }
-
-  ngOnInit() {
-  }
-
 }

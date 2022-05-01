@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CategoryMealsService } from '../../services/category-meals/category-meals.service';
