@@ -19,7 +19,7 @@ export class CategoriesService {
       concatMap(() => this.http.get<Categories>('https://www.themealdb.com/api/json/v1/1/categories.php')),
       pluck('categories'),
       finalize(() => this.loaderService.loadingState(false)),
-      shareReplay()
+      shareReplay(1)
     )
   }
 }

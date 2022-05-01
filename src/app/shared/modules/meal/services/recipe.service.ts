@@ -19,7 +19,7 @@ export class RecipeService {
       pluck('meals'),
       map(meal => meal[0]),
       finalize(() => this.loaderService.loadingState(false)),
-      shareReplay()
+      shareReplay(1)
     )
   }
 }

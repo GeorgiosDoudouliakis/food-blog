@@ -18,7 +18,7 @@ export class CountryMealsService {
       concatMap(() => this.http.get<{ meals: Meal[] }>(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${country}`)),
       pluck('meals'),
       finalize(() => this.loaderService.loadingState(false)),
-      shareReplay()
+      shareReplay(1)
     )
   }
 }

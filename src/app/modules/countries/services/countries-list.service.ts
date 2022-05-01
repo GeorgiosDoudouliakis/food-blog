@@ -18,7 +18,7 @@ export class CountriesListService {
       pluck('meals'),
       map(meals => meals.filter(meal => meal.strArea !== 'Unknown')),
       finalize(() => this.loaderService.loadingState(false)),
-      shareReplay()
+      shareReplay(1)
     )
   }
 }
