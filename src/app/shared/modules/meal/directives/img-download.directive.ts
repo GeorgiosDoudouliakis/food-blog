@@ -18,7 +18,7 @@ export class ImgDownloadDirective implements AfterViewInit {
     this.convertedEl = this.elRef.nativeElement.parentElement.parentElement.parentElement;
   }
 
-  @HostListener('click') onPdfDownload() {
+  @HostListener('click') onConvertHTMLToPNG() {
     htmlToImage.toPng(this.convertedEl).then((dataUrl) => {
       const img = new Image();
       img.src = dataUrl;
