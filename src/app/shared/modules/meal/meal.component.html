@@ -13,7 +13,7 @@
           <span class="tag">{{ tag }}</span>
         </ng-container>
       </section>
-      <button class="btn-secondary">Export Recipe as PDF</button>
+      <button class="btn-secondary" imgDownload [meal]="meal">Export Recipe as PNG</button>
     </div>
   </div>
   <p id="instructions"><span>Description:</span> {{ recipe?.strInstructions }}</p>

@@ -10,6 +10,7 @@ import { Subscription } from "rxjs";
   styleUrls: ['./meal.component.scss']
 })
 export class MealComponent implements OnInit, OnDestroy {
+  meal: string;
   recipe: Recipe;
   ingredients: (string | null)[] = [];
   measures: (string | null)[] = [];
@@ -21,9 +22,9 @@ export class MealComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    const meal = this.route.snapshot.params['meal'];
+    this.meal = this.route.snapshot.params['meal'];
 
-    this.recipeSub$ = this.recipeService.getRecipe(meal).subscribe((recipe: any) => {
+    this.recipeSub$ = this.recipeService.getRecipe(this.meal).subscribe((recipe: any) => {
       this.recipe = recipe;
 
       for(let i = 1; i <= 20; i++) {
