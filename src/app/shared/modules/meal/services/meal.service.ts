@@ -14,7 +14,7 @@ export class MealService extends RecipeService {
   override getRecipe(meal: string): Observable<any> {
     return super.getRecipe(meal).pipe(
       pluck('meals'),
-      map(meal => meal[0])
+      map(meals => meals.find(ml => ml.strMeal === meal))
     );
   }
 }
