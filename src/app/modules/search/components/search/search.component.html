@@ -2,12 +2,11 @@
   <h2>Search Meals</h2>
   <div>
     <label for="search"></label>
-    <input type="text" id="search" placeholder="Search meal..."/>
+    <input type="text" id="search" placeholder="Search meal..." #searchValue (input)="onSearch(searchValue.value)" />
   </div>
-  <span>Loading meals...</span>
-  <ul>
-    <li>
-      <a></a>
+  <ul class="grid">
+    <li *ngFor="let meal of searchedMeals">
+      <a routerLink="/search/{{ meal.strMeal }}">{{ meal.strMeal }}</a>
     </li>
   </ul>
 </section>

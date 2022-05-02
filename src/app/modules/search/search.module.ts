@@ -7,6 +7,10 @@ const routes = [
   {
     path: '',
     component: SearchComponent
+  },
+  {
+    path: ':meal',
+    loadChildren: () => import('../../shared/modules/meal/meal.module').then(m => m.MealModule)
   }
 ]
 
