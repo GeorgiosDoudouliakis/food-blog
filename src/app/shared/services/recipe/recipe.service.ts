@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { LoaderService } from "@shared/services/loader/loader.service";
 import { concatMap, finalize, map, Observable, of, pluck, tap } from "rxjs";
-import { Recipe } from "../models/recipe.model";
+import { Recipe } from "../../modules/meal/models/recipe.model";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class RecipeService {
 
   constructor(

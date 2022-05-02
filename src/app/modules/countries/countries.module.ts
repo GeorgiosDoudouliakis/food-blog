@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from "@angular/common/http";
 import { CountriesComponent } from './components/countries/countries.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
 import { CountriesListService } from './services/countries-list.service';
@@ -36,8 +35,7 @@ const routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule,
-    HttpClientModule
+    CommonModule
   ],
   exports: [
     RouterModule
