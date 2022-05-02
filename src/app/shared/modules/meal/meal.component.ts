@@ -3,6 +3,7 @@ import { RecipeService } from "@shared/services/recipe/recipe.service";
 import { ActivatedRoute } from "@angular/router";
 import { Recipe } from "@shared/modules/meal/models/recipe.model";
 import { Subscription } from "rxjs";
+import {MealService} from "@shared/modules/meal/services/meal.service";
 
 @Component({
   selector: 'app-meal',
@@ -18,13 +19,13 @@ export class MealComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private recipeService: RecipeService
+    private mealService: MealService
   ) { }
 
   ngOnInit(): void {
     this.meal = this.route.snapshot.params['meal'];
 
-    this.recipeSub$ = this.recipeService.getRecipe(this.meal).subscribe((recipe: any) => {
+    this.recipeSub$ = this.mealService.getRecipe(this.meal).subscribe((recipe: any) => {
       this.recipe = recipe;
 
       for(let i = 1; i <= 20; i++) {
