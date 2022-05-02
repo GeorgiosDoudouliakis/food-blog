@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs";
 import { Recipe } from "@shared/modules/meal/models/recipe.model";
 import { RecipeService } from "@shared/services/recipe/recipe.service";
+import { TitleService } from "@shared/services/title/title.service";
 
 @Component({
   selector: 'app-search',
@@ -12,7 +13,12 @@ export class SearchComponent implements OnDestroy {
   searchedMeals: Recipe[] = [];
   mealsSub$: Subscription;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(
+    private titleService: TitleService,
+    private recipeService: RecipeService
+  ) {
+    this.titleService.setTitle('Search');
+  }
 
   ngOnDestroy() {
     if(this.mealsSub$) this.mealsSub$.unsubscribe();
