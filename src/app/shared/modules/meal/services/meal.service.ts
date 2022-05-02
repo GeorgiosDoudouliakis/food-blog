@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RecipeService } from "@shared/services/recipe/recipe.service";
-import { map, Observable, pluck } from "rxjs";
+import { map, Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { LoaderService } from "@shared/services/loader/loader.service";
 
@@ -13,7 +13,6 @@ export class MealService extends RecipeService {
 
   override getRecipe(meal: string): Observable<any> {
     return super.getRecipe(meal).pipe(
-      pluck('meals'),
       map(meals => meals.find(ml => ml.strMeal === meal))
     );
   }
