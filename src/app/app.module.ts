@@ -1,12 +1,17 @@
+/* Place your angular imports here */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
+
+/* Place your component imports here */
+import { AppComponent } from './app.component';
+import { FooterComponent } from "./components";
+
+/* Place any other module imports here */
 import { HeaderModule } from '@shared/modules/header/header.module';
-import { FooterModule } from '@shared/modules/footer/footer.module';
 import { GoTopModule } from '@shared/modules/go-top/go-top.module';
 import { LoaderModule } from '@shared/modules/loader/loader.module';
-import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    FooterModule,
+    FooterComponent,
     GoTopModule,
     LoaderModule
   ],
