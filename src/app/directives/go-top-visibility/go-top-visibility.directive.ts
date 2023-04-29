@@ -1,6 +1,8 @@
+/* Place your angular imports here */
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
+  standalone: true,
   selector: '[goTopVisibility]',
   providers: [
     {
@@ -10,7 +12,6 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
   ]
 })
 export class GoTopVisibilityDirective {
-
   constructor(private elRef: ElementRef, private renderer: Renderer2, private window: Window) { }
 
   @HostListener('window: scroll') onScroll() {

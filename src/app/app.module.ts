@@ -6,11 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 /* Place your component imports here */
 import { AppComponent } from './app.component';
-import { FooterComponent } from "./components";
+import { FooterComponent, GoTopComponent } from "./components";
 
 /* Place any other module imports here */
 import { HeaderModule } from '@shared/modules/header/header.module';
-import { GoTopModule } from '@shared/modules/go-top/go-top.module';
 import { LoaderModule } from '@shared/modules/loader/loader.module';
 
 @NgModule({
@@ -23,7 +22,7 @@ import { LoaderModule } from '@shared/modules/loader/loader.module';
     HttpClientModule,
     HeaderModule,
     FooterComponent,
-    GoTopModule,
+    GoTopComponent,
     LoaderModule
   ],
   providers: [],
