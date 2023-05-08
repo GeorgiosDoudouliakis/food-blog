@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { CategoryMealsService } from '../../services/category-meals/category-meals.service';
 import { CountryMealsService } from '../../services/country-meals/country-meals.service';
 import { Meal } from '@shared/models/meal.model';
-import { uppercaseFirstLetter } from '@shared/helpers/uppercase-first-letter.helper';
+import { uppercaseFirstLetter } from '@shared/modules/meals/helpers/uppercase-first-letter.helper';
 
 @Component({
   selector: 'app-meals',
