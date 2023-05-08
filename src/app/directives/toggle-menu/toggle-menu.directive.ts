@@ -7,25 +7,25 @@ import { DOCUMENT } from '@angular/common';
   selector: '[toggleMenu]'
 })
 export class ToggleMenuDirective implements AfterViewInit {
-  private nav: HTMLElement | null;
+  private _nav: HTMLElement | null;
 
   constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private elRef: ElementRef,
-    private renderer: Renderer2,
+    @Inject(DOCUMENT) private _document: Document,
+    private _elRef: ElementRef,
+    private _renderer: Renderer2,
   ) { }
 
-  ngAfterViewInit(): void {
-    this.nav = this.document.querySelector('nav');
+  public ngAfterViewInit(): void {
+    this._nav = this._document.querySelector('nav');
   }
 
   @HostListener('click') onClick() {
-    if(this.elRef.nativeElement.classList.contains('menu-visibility')) {
-      this.renderer.removeClass(this.elRef.nativeElement, 'menu-visibility');
-      this.nav?.classList.remove('open');
+    if(this._elRef.nativeElement.classList.contains('menu-visibility')) {
+      this._renderer.removeClass(this._elRef.nativeElement, 'menu-visibility');
+      this._nav?.classList.remove('open');
     } else {
-      this.renderer.addClass(this.elRef.nativeElement, 'menu-visibility');
-      this.nav?.classList.add('open');
+      this._renderer.addClass(this._elRef.nativeElement, 'menu-visibility');
+      this._nav?.classList.add('open');
     }
   }
 }

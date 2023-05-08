@@ -12,17 +12,17 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
   ]
 })
 export class GoTopVisibilityDirective {
-  constructor(private elRef: ElementRef, private renderer: Renderer2, private window: Window) { }
+  constructor(private _elRef: ElementRef, private _renderer: Renderer2, private _window: Window) { }
 
   @HostListener('window: scroll') onScroll() {
-    if(this.window.scrollY > 150) {
-      this.renderer.addClass(this.elRef.nativeElement, 'show');
+    if(this._window.scrollY > 150) {
+      this._renderer.addClass(this._elRef.nativeElement, 'show');
     } else {
-      this.renderer.removeClass(this.elRef.nativeElement, 'show');
+      this._renderer.removeClass(this._elRef.nativeElement, 'show');
     }
   }
 
   @HostListener('click') onClick() {
-    this.window.scrollTo(0, 0);
+    this._window.scrollTo(0, 0);
   }
 }

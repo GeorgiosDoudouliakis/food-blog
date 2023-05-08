@@ -8,10 +8,10 @@ import { Directive, HostListener, Inject } from '@angular/core';
 })
 export class CloseMenuDirective {
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private _document: Document) { }
 
   @HostListener('click') onClick() {
-    this.document.querySelector('nav')?.classList.remove('open');
-    this.document.querySelector('.mobile-menu-icon')?.classList.remove('menu-visibility');
+    this._document.querySelector('nav')?.classList.remove('open');
+    this._document.querySelector('.mobile-menu-icon')?.classList.remove('menu-visibility');
   }
 }
