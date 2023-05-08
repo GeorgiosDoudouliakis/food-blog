@@ -1,15 +1,17 @@
+/* Place your angular imports here */
 import { AfterViewInit, Directive, ElementRef, HostListener, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 @Directive({
+  standalone: true,
   selector: '[toggleMenu]'
 })
 export class ToggleMenuDirective implements AfterViewInit {
   private nav: HTMLElement | null;
 
   constructor(
-    @Inject(DOCUMENT) private document: Document, 
-    private elRef: ElementRef, 
+    @Inject(DOCUMENT) private document: Document,
+    private elRef: ElementRef,
     private renderer: Renderer2,
   ) { }
 

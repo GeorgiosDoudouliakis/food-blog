@@ -6,10 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 /* Place your component imports here */
 import { AppComponent } from './app.component';
-import { FooterComponent, GoTopComponent } from "./components";
+import { HeaderComponent, FooterComponent, GoTopComponent } from "./components";
 
 /* Place any other module imports here */
-import { HeaderModule } from '@shared/modules/header/header.module';
 import { LoaderModule } from '@shared/modules/loader/loader.module';
 
 @NgModule({
@@ -20,7 +19,7 @@ import { LoaderModule } from '@shared/modules/loader/loader.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HeaderModule,
+    HeaderComponent,
     FooterComponent,
     GoTopComponent,
     LoaderModule
