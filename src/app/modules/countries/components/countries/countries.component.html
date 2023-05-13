@@ -1,6 +1,10 @@
 <section class="container py-2">
     <h2>COUNTRIES</h2>
-    <section class="grid">
-        <app-country-card *ngFor="let country of (countries$ | async)" [country]="country"></app-country-card>
+    <section class="grid" *ngIf="!loading; else loadingTpl">
+        <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>
     </section>
+
+    <ng-template #loadingTpl>
+      <app-loader></app-loader>
+    </ng-template>
 </section>

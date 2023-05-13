@@ -1,12 +1,10 @@
+/* Place your angular imports here */
 import { Component } from '@angular/core';
-import { LoaderService } from '@shared/services/loader/loader.service';
 
 @Component({
+  standalone: true,
   selector: 'app-loader',
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss']
 })
-export class LoaderComponent {
-
-  constructor(public loaderService: LoaderService) { }
-}
+export class LoaderComponent {}

@@ -2,11 +2,15 @@
   <h2>SEARCH MEALS</h2>
   <div>
     <label for="search"></label>
-    <input type="text" id="search" placeholder="Search meal..." #searchValue (input)="onSearch(searchValue.value)" />
+    <input type="text" id="search" placeholder="Search meal..." [(ngModel)]="meal" (ngModelChange)="onMealSearch()" />
   </div>
-  <ul class="grid">
-    <li *ngFor="let meal of searchedMeals">
+  <ul *ngIf="!loading; else loadingTpl" class="grid">
+    <li *ngFor="let meal of meals">
       <a routerLink="/search/{{ meal.strMeal }}">{{ meal.strMeal }}</a>
     </li>
   </ul>
+
+  <ng-template #loadingTpl>
+    <app-loader></app-loader>
+  </ng-template>
 </section>

@@ -1,23 +1,22 @@
+/* Place your angular imports here */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+/* Place your RxJs imports here */
+import { concatMap, Observable, of, pluck } from 'rxjs';
+
+/* Place any other imports here */
 import { Meal } from '@shared/models/meal.model';
-import { LoaderService } from '@shared/services/loader/loader.service';
-import { concatMap, finalize, Observable, of, pluck, tap } from 'rxjs';
 
 @Injectable()
 export class CategoryMealsService {
 
-  constructor(
-    private http: HttpClient,
-    private loaderService: LoaderService
-  ) { }
+  constructor(private http: HttpClient) { }
 
-  getCategoryMeals(category: string): Observable<Meal[]> {
+  public getCategoryMeals(category: string): Observable<Meal[]> {
     return of(null).pipe(
-      tap(() => this.loaderService.loadingState(true)),
       concatMap(() => this.http.get<{ meals: Meal[] }>(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)),
-      pluck('meals'),
-      finalize(() => this.loaderService.loadingState(false))
+      pluck('meals')
     )
   }
 }

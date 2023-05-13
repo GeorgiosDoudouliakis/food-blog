@@ -1,8 +1,14 @@
+/* Place your angular imports here */
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { RouterModule } from '@angular/router';
+
+/* Place your component imports here */
 import { CountriesComponent } from './components/countries/countries.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
+import { LoaderComponent } from "@shared/components/loader/loader.component";
+
+/* Place your service imports here */
 import { CountriesListService } from './services/countries-list.service';
 import { CardHoverDirective } from './directives/card-hover.directive';
 
@@ -35,7 +41,8 @@ const routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    LoaderComponent
   ],
   exports: [
     RouterModule

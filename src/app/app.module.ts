@@ -8,9 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent, FooterComponent, GoTopComponent } from "./components";
 
-/* Place any other module imports here */
-import { LoaderModule } from '@shared/modules/loader/loader.module';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -21,8 +18,7 @@ import { LoaderModule } from '@shared/modules/loader/loader.module';
     HttpClientModule,
     HeaderComponent,
     FooterComponent,
-    GoTopComponent,
-    LoaderModule
+    GoTopComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,10 @@
 <section class="container py-2">
     <h2>CATEGORIES</h2>
-    <section class="grid">
-        <app-category-card *ngFor="let category of (categories$ | async)" [category]="category"></app-category-card>
+    <section class="grid" *ngIf="!loading; else loadingTpl">
+        <app-category-card *ngFor="let category of categories" [category]="category"></app-category-card>
     </section>
+
+    <ng-template #loadingTpl>
+      <app-loader></app-loader>
+    </ng-template>
 </section>

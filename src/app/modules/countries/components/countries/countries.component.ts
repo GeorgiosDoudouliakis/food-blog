@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+/* Place your angular imports here */
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
+/* Place your RxJs imports here */
+import {Subscription, tap} from 'rxjs';
+
+/* Place your service imports here */
 import { TitleService } from '@shared/services/title/title.service';
-import { Observable } from 'rxjs';
 import { CountriesListService } from '../../services/countries-list.service';
 
 @Component({
@@ -8,8 +13,10 @@ import { CountriesListService } from '../../services/countries-list.service';
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss']
 })
-export class CountriesComponent implements OnInit {
-  countries$: Observable<{ strArea: string }[]>;
+export class CountriesComponent implements OnInit, OnDestroy {
+  public countries: { strArea: string }[] = [];
+  public loading: boolean = true;
+  private _countriesSub$: Subscription;
 
   constructor(
     private titleService: TitleService,
@@ -18,7 +25,14 @@ export class CountriesComponent implements OnInit {
     this.titleService.setTitle('Countries');
   }
 
-  ngOnInit(): void {
-    this.countries$ = this.countriesListService.getCountriesList();
+  public ngOnInit(): void {
+    this._countriesSub$ = this.countriesListService.getCountriesList().pipe(
+      tap((countries: { strArea: string }[]) => this.countries = countries),
+      tap(() => this.loading = false)
+    ).subscribe();
+  }
+
+  public ngOnDestroy(): void {
+    if(this._countriesSub$) this._countriesSub$.unsubscribe();
   }
 }

@@ -1,0 +1,36 @@
+<section class="container py-2">
+  <ng-container *ngIf="!loading; else loadingTpl">
+    <ng-container *ngIf="recipe">
+      <div class="recipe-img-info-container">
+        <div class="meal-img-container">
+          <img [src]="recipe.strMealThumb" [alt]="recipe.strMeal" />
+        </div>
+        <div class="recipe-info">
+          <h2>{{ recipe.strMeal }}</h2>
+          <p>Category: {{ recipe.strCategory }}</p>
+          <p>Area: {{ recipe.strArea }}</p>
+          <a [href]="recipe.strYoutube" target="_blank">YouTube Video Link</a>
+          <section id="tags-container">
+            <ng-container *ngFor="let tag of recipe.strTags?.split(',')">
+              <span class="tag">{{ tag }}</span>
+            </ng-container>
+          </section>
+          <button class="btn-secondary" imgDownload [meal]="meal">Export Recipe as PNG</button>
+        </div>
+      </div>
+      <div id="instructions-ingredients-container">
+        <p id="instructions"><span>Instructions:</span> {{ recipe.strInstructions }}</p>
+        <h3>INGREDIENTS</h3>
+        <ul class="grid">
+          <ng-container *ngFor="let ingredient of ingredients; let i = index">
+            <li>{{ measures[i] }} {{ ingredient }}</li>
+          </ng-container>
+        </ul>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loadingTpl>
+    <app-loader></app-loader>
+  </ng-template>
+</section>

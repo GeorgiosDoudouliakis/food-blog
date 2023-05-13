@@ -1,8 +1,15 @@
-import { Component, OnInit, Injector } from '@angular/core';
+/* Place your angular imports here */
+import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+
+/* Place your RxJs imports here */
+import {Observable, Subscription, tap} from 'rxjs';
+
+/* Place your service imports here */
 import { CategoryMealsService } from '../../services/category-meals/category-meals.service';
 import { CountryMealsService } from '../../services/country-meals/country-meals.service';
+
+/* Place any other imports here */
 import { Meal } from '@shared/models/meal.model';
 import { uppercaseFirstLetter } from '@shared/modules/meals/helpers/uppercase-first-letter.helper';
 
@@ -11,23 +18,29 @@ import { uppercaseFirstLetter } from '@shared/modules/meals/helpers/uppercase-fi
   templateUrl: './meals.component.html',
   styleUrls: ['./meals.component.scss']
 })
-export class MealsComponent implements OnInit {
-  service: CategoryMealsService | CountryMealsService;
-  meals$: Observable<Meal[]>;
+export class MealsComponent implements OnInit, OnDestroy {
+  public meals: Meal[] = [];
+  public loading: boolean = true;
+  private _service: CategoryMealsService | CountryMealsService;
+  private _mealsSub$: Subscription;
 
   constructor(
     public route: ActivatedRoute,
     private injector: Injector
   ) {
     if(this.route.snapshot.data['type'] === 'category') {
-      this.service = this.injector.get(CategoryMealsService);
+      this._service = this.injector.get(CategoryMealsService);
     } else {
-      this.service = this.injector.get(CountryMealsService);
+      this._service = this.injector.get(CountryMealsService);
     }
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getMeals();
+  }
+
+  public ngOnDestroy(): void {
+    if(this._mealsSub$) this._mealsSub$.unsubscribe();
   }
 
   get title(): string {
@@ -36,10 +49,16 @@ export class MealsComponent implements OnInit {
   }
 
   private getMeals() {
-    if(this.service instanceof CategoryMealsService) {
-      this.meals$ = this.service.getCategoryMeals(uppercaseFirstLetter(this.title));
-    } else if(this.service instanceof CountryMealsService) {
-      this.meals$ = this.service.getCountryMeals(uppercaseFirstLetter(this.title));
+    if(this._service instanceof CategoryMealsService) {
+      this._mealsSub$ = this._service.getCategoryMeals(uppercaseFirstLetter(this.title)).pipe(
+        tap((meals: Meal[]) => this.meals = meals),
+        tap(() => this.loading = false)
+      ).subscribe();
+    } else if(this._service instanceof CountryMealsService) {
+      this._mealsSub$ = this._service.getCountryMeals(uppercaseFirstLetter(this.title)).pipe(
+        tap((meals: Meal[]) => this.meals = meals),
+        tap(() => this.loading = false)
+      ).subscribe();
     }
   }
 }

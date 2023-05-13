@@ -1,17 +1,35 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from "rxjs";
-import { Recipe } from "@shared/modules/meal/models/recipe.model";
+/* Place your angular imports here */
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
+/* Place your RxJs imports here */
+import {
+  BehaviorSubject,
+  debounceTime,
+  distinctUntilChanged,
+  of,
+  Subscription,
+  switchMap,
+  tap
+} from "rxjs";
+
+/* Place your service imports here */
 import { RecipeService } from "@shared/services/recipe/recipe.service";
 import { TitleService } from "@shared/services/title/title.service";
+
+/* Place any other imports here */
+import { Recipe } from "@shared/modules/meal/models/recipe.model";
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnDestroy {
-  searchedMeals: Recipe[] = [];
-  mealsSub$: Subscription;
+export class SearchComponent implements OnInit, OnDestroy {
+  public meal: string = "";
+  public meals: Recipe[] = [];
+  public loading: boolean = false;
+  private _mealsSub$: Subscription;
+  private _mealSearchHandler: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
   constructor(
     private titleService: TitleService,
@@ -20,16 +38,27 @@ export class SearchComponent implements OnDestroy {
     this.titleService.setTitle('Search');
   }
 
-  ngOnDestroy() {
-    if(this.mealsSub$) this.mealsSub$.unsubscribe();
+  public ngOnInit(): void {
+    this._mealsSub$ = this._mealSearchHandler.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      switchMap((meal: string) => {
+        if(meal) {
+          this.loading = true;
+          return this.recipeService.getRecipe(meal)
+        }
+        return of([]);
+      }),
+      tap((meals: Recipe[]) => this.meals = meals),
+      tap(() => this.loading = false)
+    ).subscribe();
   }
 
-  onSearch(value: string) {
-    if(value) {
-      this.mealsSub$ = this.recipeService.getRecipe(value)
-        .subscribe((meals: Recipe[]) => this.searchedMeals = meals);
-    } else {
-      this.searchedMeals = [];
-    }
+  public ngOnDestroy(): void {
+    if(this._mealsSub$) this._mealsSub$.unsubscribe();
+  }
+
+  public onMealSearch(): void {
+    this._mealSearchHandler.next(this.meal);
   }
 }
