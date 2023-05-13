@@ -1,26 +1,28 @@
+/* Place your angular imports here */
 import {AfterViewInit, Directive, ElementRef, HostListener, Inject, Input } from '@angular/core';
-import * as htmlToImage from 'html-to-image';
 import { DOCUMENT } from '@angular/common';
-import { of } from "rxjs";
+
+/* Place any other imports here */
+import * as htmlToImage from 'html-to-image';
 
 @Directive({
   selector: '[imgDownload]'
 })
 export class ImgDownloadDirective implements AfterViewInit {
-  private convertedEl: HTMLElement;
-  @Input() meal: string;
+  private _convertedEl: HTMLElement;
+  @Input() public meal: string;
 
   constructor(
     private elRef: ElementRef,
     @Inject(DOCUMENT) private document: Document
   ) { }
 
-  ngAfterViewInit() {
-    this.convertedEl = this.elRef.nativeElement.parentElement.parentElement.parentElement.querySelector('#instructions-ingredients-container');
+  public ngAfterViewInit(): void {
+    this._convertedEl = this.elRef.nativeElement.parentElement.parentElement.parentElement.querySelector('#instructions-ingredients-container');
   }
 
-  @HostListener('click') onConvertHTMLToPNG() {
-    htmlToImage.toPng(this.convertedEl).then((dataUrl) => {
+  @HostListener('click') public onConvertHTMLToPNG(): void {
+    htmlToImage.toPng(this._convertedEl).then((dataUrl) => {
       const img = new Image();
       img.src = dataUrl;
       const anchor = this.document.createElement('a');

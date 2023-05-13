@@ -1,4 +1,7 @@
+/* Place your angular imports here */
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+
+/* Place any other imports here */
 import { Category } from '../../models/categories.model';
 
 @Component({
@@ -8,7 +11,7 @@ import { Category } from '../../models/categories.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoryCardComponent {
-  @Input() category: Category;
+  @Input() public category: Category;
 
   constructor() { }
 }

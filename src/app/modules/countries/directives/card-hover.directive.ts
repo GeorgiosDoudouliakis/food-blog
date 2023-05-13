@@ -1,22 +1,23 @@
+/* Place your angular imports here */
 import { AfterViewInit, Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[cardHover]'
 })
 export class CardHoverDirective implements AfterViewInit {
-  arrow: HTMLSpanElement;
+  public arrow: HTMLSpanElement;
 
   constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
-  ngAfterViewInit() {
+  public ngAfterViewInit(): void {
     this.arrow = this.elRef.nativeElement.querySelector('span');
   }
 
-  @HostListener('mouseover') onMouseOver() {
+  @HostListener('mouseover') public onMouseOver(): void {
     this.renderer.setStyle(this.arrow, 'transform', 'translateX(8px)');
   }
 
-  @HostListener('mouseout') onMouseOut() {
+  @HostListener('mouseout') public onMouseOut(): void {
     this.renderer.removeStyle(this.arrow, 'transform');
   }
 }

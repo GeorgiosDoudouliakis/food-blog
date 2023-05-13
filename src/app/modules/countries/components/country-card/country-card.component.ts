@@ -1,3 +1,4 @@
+/* Place your angular imports here */
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,11 +9,11 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountryCardComponent {
-  @Input() country: { strArea: string };
+  @Input() public country: { strArea: string };
 
   constructor(private router: Router) { }
 
-  navigateToCountryMeals(country: string) {
+  public navigateToCountryMeals(country: string): void {
     this.router.navigateByUrl(`/countries/${country.toLowerCase()}`);
   }
 }

@@ -3,7 +3,7 @@ import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 /* Place your RxJs imports here */
-import {Observable, Subscription, tap} from 'rxjs';
+import { Subscription, tap } from 'rxjs';
 
 /* Place your service imports here */
 import { CategoryMealsService } from '../../services/category-meals/category-meals.service';

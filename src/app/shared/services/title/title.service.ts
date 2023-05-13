@@ -1,3 +1,4 @@
+/* Place your angular imports here */
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
@@ -8,7 +9,7 @@ export class TitleService {
 
   constructor(private title: Title) { }
 
-  setTitle(title?: string) {
+  public setTitle(title?: string): void {
     this.title.setTitle(`Food Blog ${title ? '|' + ' ' + title : ''}`);
   }
 }

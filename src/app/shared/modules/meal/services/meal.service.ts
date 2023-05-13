@@ -9,7 +9,7 @@ import { RecipeService } from "@shared/services/recipe/recipe.service";
 
 @Injectable()
 export class MealService extends RecipeService {
-  override getRecipe(meal: string): Observable<any> {
+  public override getRecipe(meal: string): Observable<any> {
     return super.getRecipe(meal).pipe(
       map(meals => meals.find(ml => ml.strMeal === meal))
     );

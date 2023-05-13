@@ -19,7 +19,7 @@ export class ToggleMenuDirective implements AfterViewInit {
     this._nav = this._document.querySelector('nav');
   }
 
-  @HostListener('click') onClick() {
+  @HostListener('click') public onClick(): void {
     if(this._elRef.nativeElement.classList.contains('menu-visibility')) {
       this._renderer.removeClass(this._elRef.nativeElement, 'menu-visibility');
       this._nav?.classList.remove('open');

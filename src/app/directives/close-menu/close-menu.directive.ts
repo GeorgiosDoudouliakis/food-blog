@@ -10,7 +10,7 @@ export class CloseMenuDirective {
 
   constructor(@Inject(DOCUMENT) private _document: Document) { }
 
-  @HostListener('click') onClick() {
+  @HostListener('click') public onClick(): void {
     this._document.querySelector('nav')?.classList.remove('open');
     this._document.querySelector('.mobile-menu-icon')?.classList.remove('menu-visibility');
   }
