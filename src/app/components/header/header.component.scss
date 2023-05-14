@@ -9,7 +9,6 @@ a {
 header {
     padding: 1rem 0;
     background-color: $secondary-color;
-    border-bottom: 1px solid $primary-color;
     position: relative;
     @media(min-width: 768px) {
         padding: 0;
@@ -22,12 +21,15 @@ header {
 
 .brand > a {
     font-size: 1.7rem;
+    padding: .5rem .8rem;
+    color: $secondary-color;
+    background: $primary-color;
     letter-spacing: 0.1rem;
 }
 
 nav {
     position: absolute;
-    top: 66.39px;
+    top: 78.39px;
     left: 0;
     width: 100%;
     background: $secondary-color;
@@ -66,7 +68,6 @@ ul {
       letter-spacing: 0.2rem;
       transition: .4s ease-in-out;
       &:hover, &.active {
-        background: $primary-color;
         color: #fff;
       }
       @media(min-width: 768px) {
