@@ -1,10 +1,12 @@
 <article class="card">
     <h3>{{ category.strCategory }}</h3>
-    <img *ngIf="category.strCategoryThumb; else noImage" [src]="category.strCategoryThumb" [alt]="category.strCategory"/>
-    <ng-template #noImage>
-        <img src="/assets/images/empty_food_img.png" alt="" />
-    </ng-template>
-    <button class="btn-primary">
+    <div class="img-container">
+      <img *ngIf="category.strCategoryThumb; else noImage" [src]="category.strCategoryThumb" [alt]="category.strCategory"/>
+      <ng-template #noImage>
+          <img src="/assets/images/empty_food_img.png" alt="" />
+      </ng-template>
+    </div>
+    <button class="btn-secondary">
         <a routerLink="/categories/{{ category.strCategory | lowercase }}">Show Meals</a>
     </button>
 </article>
