@@ -3,12 +3,12 @@
     <ng-container *ngIf="recipe">
       <div class="recipe-img-info-container">
         <div class="meal-img-container">
-          <img [src]="recipe.strMealThumb" [alt]="recipe.strMeal" />
+          <img [src]="recipe.strMealThumb" class="img-responsive" [alt]="recipe.strMeal" />
         </div>
         <div class="recipe-info">
           <h2>{{ recipe.strMeal }}</h2>
           <div class="recipe-flag-img-container">
-            <img src="/assets/images/countries/{{ recipe.strArea | lowercase }}_flag.jpg" alt="{{ recipe.strArea }} flag"/>
+            <img src="/assets/images/countries/{{ recipe.strArea | lowercase }}_flag.jpg" class="img-responsive" alt="{{ recipe.strArea }} flag"/>
           </div>
           <p>Category: {{ recipe.strCategory }}</p>
           <a [href]="recipe.strYoutube" target="_blank">YouTube Video Link</a>

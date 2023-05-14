@@ -1,7 +1,9 @@
 <article class="card" role="link" (click)="navigateToCountryMeals(country.strArea)" cardHover>
-    <div>
-        <img src="/assets/images/countries/{{ country.strArea | lowercase }}_flag.jpg" alt="{{ country.strArea }} flag"/>
-        <h3 class="py-1">{{ country.strArea }}</h3>
+    <div class="country-flag-name-container">
+      <div class="country-flag-container">
+        <img src="/assets/images/countries/{{ country.strArea | lowercase }}_flag.jpg" class="img-responsive" alt="{{ country.strArea }} flag"/>
+      </div>
+      <h3 class="py-1">{{ country.strArea }}</h3>
     </div>
     <span>&#xbb;</span>
 </article>
