@@ -10,13 +10,17 @@ input {
   width: 100%;
   padding: 0.5rem;
   background: $bg-color;
-  color: $primary-color;
+  color: #fff;
   &::placeholder {
-    color: #fff;
+    color: $primary-color;
   }
   &:focus {
-    border-bottom: 1px solid $primary-color;
+    outline: 1px solid $primary-color;
   }
+}
+
+.meals-found {
+  margin-bottom: 2rem;
 }
 
 li {
@@ -34,6 +38,9 @@ a {
 
 p {
   font-size: 1.2rem;
-  text-align: center;
   color: #fff;
+}
+
+.no-meals-found {
+  text-align: center;
 }

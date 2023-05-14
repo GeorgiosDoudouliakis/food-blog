@@ -5,14 +5,17 @@
     <input type="text" id="search" placeholder="Search meal..." [(ngModel)]="mealForSearch" (ngModelChange)="onMealSearch()" autocomplete="off"/>
   </div>
   <ng-container *ngIf="!loading; else loadingTpl">
-    <ul class="grid">
-      <li *ngFor="let meal of meals">
-        <a routerLink="/search/{{ meal.strMeal }}">{{ meal.strMeal }}</a>
-      </li>
-    </ul>
+    <ng-container *ngIf="mealForSearch && meals">
+      <p class="meals-found">Meals found: {{ meals.length }}</p>
+      <ul class="grid">
+        <li *ngFor="let meal of meals">
+          <a routerLink="/search/{{ meal.strMeal }}">{{ meal.strMeal }}</a>
+        </li>
+      </ul>
+    </ng-container>
 
     <ng-container *ngIf="mealForSearch && !meals">
-      <p>No meals found!</p>
+      <p class="no-meals-found">No meals found!</p>
     </ng-container>
   </ng-container>
 
