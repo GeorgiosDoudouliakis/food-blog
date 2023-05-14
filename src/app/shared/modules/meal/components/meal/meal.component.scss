@@ -85,9 +85,11 @@
 }
 
 .tag {
-  padding: 0.3rem 0.5rem;
-  color: $primary-color;
-  background: $bg-color;
+  display: inline-block;
+  padding: 0rem 1rem;
+  color: #fff;
+  background: $secondary-color;
+  border: 1px solid $primary-color;
   &:not(:last-of-type) {
     margin-right: 0.8rem;
   }
