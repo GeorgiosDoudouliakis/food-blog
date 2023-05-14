@@ -5,7 +5,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Subscription, tap} from 'rxjs';
 
 /* Place your service imports here */
-import { TitleService } from '@shared/services/title/title.service';
 import { CountriesListService } from '../../services/countries-list.service';
 
 @Component({
@@ -18,12 +17,7 @@ export class CountriesComponent implements OnInit, OnDestroy {
   public loading: boolean = true;
   private _countriesSub$: Subscription;
 
-  constructor(
-    private titleService: TitleService,
-    private countriesListService: CountriesListService
-  ) {
-    this.titleService.setTitle('Countries');
-  }
+  constructor(private countriesListService: CountriesListService) {}
 
   public ngOnInit(): void {
     this._countriesSub$ = this.countriesListService.getCountriesList().pipe(

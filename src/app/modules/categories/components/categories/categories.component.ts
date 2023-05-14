@@ -5,7 +5,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, tap } from 'rxjs';
 
 /* Place your service imports here */
-import { TitleService } from '@shared/services/title/title.service';
 import { CategoriesService } from '../../services/categories.service';
 
 /* Place any other imports here */
@@ -21,12 +20,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   public loading: boolean = true;
   private _categoriesSub$: Subscription;
 
-  constructor(
-    private titleService: TitleService,
-    private categoriesService: CategoriesService
-  ) {
-    this.titleService.setTitle('Categories');
-  }
+  constructor(private categoriesService: CategoriesService) {}
 
   public ngOnInit(): void {
     this._categoriesSub$ = this.categoriesService.getCategories().pipe(

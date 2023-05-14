@@ -14,7 +14,6 @@ import {
 
 /* Place your service imports here */
 import { RecipeService } from "@shared/services/recipe/recipe.service";
-import { TitleService } from "@shared/services/title/title.service";
 
 /* Place any other imports here */
 import { Recipe } from "@shared/modules/meal/models/recipe.model";
@@ -31,12 +30,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   private _mealsSub$: Subscription;
   private _mealSearchHandler: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
-  constructor(
-    private titleService: TitleService,
-    private recipeService: RecipeService
-  ) {
-    this.titleService.setTitle('Search');
-  }
+  constructor(private recipeService: RecipeService) {}
 
   public ngOnInit(): void {
     this._mealsSub$ = this._mealSearchHandler.pipe(

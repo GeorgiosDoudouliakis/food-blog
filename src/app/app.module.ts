@@ -20,7 +20,6 @@ import { HeaderComponent, FooterComponent, GoTopComponent } from "./components";
     FooterComponent,
     GoTopComponent
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
