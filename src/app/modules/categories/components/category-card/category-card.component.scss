@@ -2,11 +2,14 @@
 @import 'src/assets/scss/reusable';
 @import 'src/assets/scss/mixins';
 
+.card {
+  border-left: 1px solid $primary-color;
+}
+
 h3 {
     text-align: center;
     padding: 0.8rem 0;
     color: #fff;
-    border-bottom: 1px solid #8b8b8b;
 }
 
 h3, img {
