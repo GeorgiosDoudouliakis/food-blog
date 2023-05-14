@@ -11,7 +11,6 @@ input {
   padding: 0.5rem;
   background: $bg-color;
   color: $primary-color;
-  border-radius: 4px;
   &::placeholder {
     color: #fff;
   }
@@ -22,7 +21,6 @@ input {
 
 li {
   background: $bg-color;
-  border-radius: 4px;
 }
 
 a {
