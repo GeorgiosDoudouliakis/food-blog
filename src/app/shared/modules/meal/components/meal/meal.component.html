@@ -7,8 +7,10 @@
         </div>
         <div class="recipe-info">
           <h2>{{ recipe.strMeal }}</h2>
+          <div class="recipe-flag-img-container">
+            <img src="/assets/images/countries/{{ recipe.strArea | lowercase }}_flag.jpg" alt="{{ recipe.strArea }} flag"/>
+          </div>
           <p>Category: {{ recipe.strCategory }}</p>
-          <p>Area: {{ recipe.strArea }}</p>
           <a [href]="recipe.strYoutube" target="_blank">YouTube Video Link</a>
           <section id="tags-container">
             <ng-container *ngFor="let tag of recipe.strTags?.split(',')">
