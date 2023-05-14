@@ -25,7 +25,7 @@ import { Recipe } from "@shared/modules/meal/models/recipe.model";
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  public meal: string = "";
+  public mealForSearch: string = "";
   public meals: Recipe[] = [];
   public loading: boolean = false;
   private _mealsSub$: Subscription;
@@ -59,6 +59,6 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   public onMealSearch(): void {
-    this._mealSearchHandler.next(this.meal);
+    this._mealSearchHandler.next(this.mealForSearch);
   }
 }
