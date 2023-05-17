@@ -19,10 +19,12 @@
 }
 
 .recipe-info {
+  width: 100%;
   h2, p {
     text-align: center;
   }
   h2 {
+    padding-left: 1rem;
     margin-bottom: 1rem;
   }
   .recipe-flag-img-container {
