@@ -3,7 +3,7 @@
 @import 'src/assets/scss/mixins';
 
 .card {
-  border-left: 1px solid $primary-color;
+  padding: 0 0 1rem 0;
 }
 
 h3 {
@@ -17,15 +17,17 @@ h3, img {
 }
 
 .img-container {
-  width: 200px;
+  width: 150px;
   margin: auto;
 }
 
 .btn-secondary {
-    display: block;
+  display: block;
+  width: 150px;
+  margin: auto;
+  border-radius: 4px;
+  a {
     width: 100%;
-    a {
-      width: 100%;
-      color: #fff;
-    }
+    color: #fff;
+  }
 }
