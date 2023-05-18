@@ -1,7 +1,7 @@
 <article class="card">
     <h3>{{ category.strCategory }}</h3>
     <div class="img-container">
-      <img *ngIf="category.strCategoryThumb; else noImage" class="img-responsive" [src]="category.strCategoryThumb" [alt]="category.strCategory"/>
+      <img *ngIf="category.strCategoryThumb; else noImage" class="img-responsive" width="150" height="93.75" [src]="category.strCategoryThumb" [alt]="category.strCategory"/>
       <ng-template #noImage>
           <img src="/assets/images/empty_food_img.png" class="img-responsive" alt="" />
       </ng-template>

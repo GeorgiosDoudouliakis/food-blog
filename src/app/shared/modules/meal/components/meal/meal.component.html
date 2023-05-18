@@ -8,13 +8,13 @@
         <div class="recipe-info">
           <h2>{{ recipe.strMeal }}</h2>
           <div class="recipe-flag-img-container">
-            <img src="/assets/images/countries/{{ recipe.strArea | lowercase }}_flag.jpg" class="img-responsive" alt="{{ recipe.strArea }} flag"/>
+            <img src="/assets/images/countries/{{ recipe.strArea | lowercase }}_flag.jpg" class="img-responsive" width="280" height="280" alt="{{ recipe.strArea }} flag"/>
           </div>
           <p>Category: {{ recipe.strCategory }}</p>
           <a [href]="recipe.strYoutube" target="_blank">YouTube Video Link</a>
           <section id="tags-container">
             <ng-container *ngFor="let tag of recipe.strTags?.split(',')">
-              <span class="tag">{{ tag }}</span>
+              <span class="tag" *ngIf="tag">{{ tag }}</span>
             </ng-container>
           </section>
           <button class="btn-secondary" imgDownload [meal]="meal">Export Recipe as PNG</button>
