@@ -12,6 +12,7 @@ import { MealService } from "@shared/modules/meal/services/meal.service";
 
 /* Place any other imports here */
 import { ImgDownloadDirective } from './directives/img-download.directive';
+import { ConvertTagsToArrayPipe } from "@shared/modules/meal/pipes/convert-tags-to-array.pipe";
 
 const routes = [
   {
@@ -28,7 +29,8 @@ const routes = [
   ],
   declarations: [
     MealComponent,
-    ImgDownloadDirective
+    ImgDownloadDirective,
+    ConvertTagsToArrayPipe
   ],
   providers: [MealService],
   exports: [RouterModule,MealComponent,ImgDownloadDirective]

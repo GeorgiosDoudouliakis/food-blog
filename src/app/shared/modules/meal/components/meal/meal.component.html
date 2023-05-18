@@ -13,7 +13,7 @@
           <p>Category: {{ recipe.strCategory }}</p>
           <a [href]="recipe.strYoutube" target="_blank">YouTube Video Link</a>
           <section id="tags-container">
-            <ng-container *ngFor="let tag of recipe.strTags?.split(',')">
+            <ng-container *ngFor="let tag of (recipe.strTags | convertTagsToArray)">
               <span class="tag" *ngIf="tag">{{ tag }}</span>
             </ng-container>
           </section>
