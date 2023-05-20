@@ -13,7 +13,7 @@ import {
 } from "rxjs";
 
 /* Place your service imports here */
-import { RecipeService } from "@shared/services/recipe/recipe.service";
+import { SearchService } from "../../services/search/search.service";
 
 /* Place any other imports here */
 import { Recipe } from "@shared/modules/meal/models/recipe.model";
@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   private _mealsSub$: Subscription;
   private _mealSearchHandler: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
-  constructor(private _recipeService: RecipeService) {}
+  constructor(private _searchService: SearchService) {}
 
   public ngOnInit(): void {
     this._mealsSub$ = this._mealSearchHandler.pipe(
@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit, OnDestroy {
       switchMap((meal: string) => {
         if(meal) {
           this.loading = true;
-          return this._recipeService.getRecipe(meal)
+          return this._searchService.getMeals(meal)
         }
         return of([]);
       }),

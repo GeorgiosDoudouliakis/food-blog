@@ -6,15 +6,13 @@ import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 
 /* Place any other imports here */
-import { Recipe } from "../../modules/meal/models/recipe.model";
+import { Recipe } from "@shared/modules/meal/models/recipe.model";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class RecipeService {
+@Injectable()
+export class SearchService {
   constructor(private _http: HttpClient) { }
 
-  public getRecipe(meal: string): Observable<Recipe[]> {
+  public getMeals(meal: string): Observable<Recipe[]> {
     return this._http.get<{ meals: Recipe[] }>(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`).pipe(
       map((res: { meals: Recipe[] }) => res.meals)
     )

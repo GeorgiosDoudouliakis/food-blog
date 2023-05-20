@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SearchComponent } from './components/search/search.component';
 import { LoaderComponent } from "@shared/components/loader/loader.component";
 
+/* Place your service imports here */
+import { SearchService } from "./services/search/search.service";
+
 const routes = [
   {
     path: '',
@@ -30,6 +33,7 @@ const routes = [
     ReactiveFormsModule,
     LoaderComponent
   ],
+  providers: [SearchService],
   exports: [RouterModule]
 })
 export class SearchModule { }
