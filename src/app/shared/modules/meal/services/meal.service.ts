@@ -1,17 +1,22 @@
 /* Place your angular imports here */
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 /* Place your RxJs imports here */
-import { map, Observable } from "rxjs";
+import { filter, map, Observable } from "rxjs";
 
 /* Place your service imports here */
-import { RecipeService } from "@shared/services/recipe/recipe.service";
+import { Recipe } from "@shared/modules/meal/models/recipe.model";
 
 @Injectable()
-export class MealService extends RecipeService {
-  public override getRecipe(meal: string): Observable<any> {
-    return super.getRecipe(meal).pipe(
-      map(meals => meals.find(ml => ml.strMeal === meal))
-    );
+export class MealService {
+  constructor(private _http: HttpClient) { }
+
+  public getRecipe(meal: string): Observable<Recipe> {
+    return this._http.get<{ meals: Recipe[] }>(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`).pipe(
+      map((res: { meals: Recipe[] }) => res.meals),
+      map(meals => meals.find(ml => ml.strMeal === meal)),
+      filter((meal): meal is Recipe => !!meal)
+    )
   }
 }

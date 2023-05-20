@@ -43,13 +43,13 @@ export class MealComponent implements OnInit, OnDestroy {
     this.meal = this._route.snapshot.params['meal'];
 
     this._recipeSub$ = this._mealService.getRecipe(this.meal).pipe(
-      tap((recipe: any) => {
+      tap((recipe: Recipe) => {
         this.recipe = recipe;
 
         for(let i = 1; i <= 20; i++) {
-          if(recipe[`strIngredient${i}`] && recipe[`strMeasure${i}`]) {
-            this.ingredients.push(recipe[`strIngredient${i}`]);
-            this.measures.push(recipe[`strMeasure${i}`]);
+          if(recipe[`strIngredient${i}` as keyof Recipe] && recipe[`strMeasure${i}` as keyof Recipe]) {
+            this.ingredients.push(recipe[`strIngredient${i}` as keyof Recipe]);
+            this.measures.push(recipe[`strMeasure${i}` as keyof Recipe]);
           }
         }
       }),
