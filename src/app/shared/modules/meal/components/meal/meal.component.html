@@ -18,7 +18,7 @@
               <span>|</span>
               <a [href]="recipe.strYoutube" target="_blank">YouTube Video Link</a>
             </div>
-            <section id="tags-container">
+            <section class="tags-container">
               <ng-container *ngFor="let tag of (recipe.strTags | convertTagsToArray)">
                 <span class="tag" *ngIf="tag">{{ tag }}</span>
               </ng-container>
