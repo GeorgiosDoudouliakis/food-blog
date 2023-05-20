@@ -2,23 +2,28 @@
   <ng-container *ngIf="!loading; else loadingTpl">
     <ng-container *ngIf="recipe">
       <div class="recipe-img-info-container">
-        <div class="meal-img-container">
+        <div *ngIf="!isOnMobile" class="meal-img-container">
           <img [src]="recipe.strMealThumb" class="img-responsive" width="50" height="40" [alt]="recipe.strMeal" />
         </div>
         <div class="recipe-info">
           <h2>
             <span>{{ recipe.strMeal }}</span>
             <div class="recipe-flag-img-container">
-              <img src="/assets/images/countries/{{ recipe.strArea | lowercase }}_flag.jpg" class="img-responsive" width="300" height="230" alt="{{ recipe.strArea }} flag"/>
+              <img src="/assets/images/countries/{{ recipe.strArea | lowercase }}_flag.jpg" class="img-responsive" width="300" height="240" alt="{{ recipe.strArea }} flag"/>
             </div>
           </h2>
-          <p>Category: {{ recipe.strCategory }}</p>
-          <a [href]="recipe.strYoutube" target="_blank">YouTube Video Link</a>
-          <section id="tags-container">
-            <ng-container *ngFor="let tag of (recipe.strTags | convertTagsToArray)">
-              <span class="tag" *ngIf="tag">{{ tag }}</span>
-            </ng-container>
-          </section>
+          <div>
+            <div class="category-yt-container">
+              <p>{{ recipe.strCategory }}</p>
+              <span>|</span>
+              <a [href]="recipe.strYoutube" target="_blank">YouTube Video Link</a>
+            </div>
+            <section id="tags-container">
+              <ng-container *ngFor="let tag of (recipe.strTags | convertTagsToArray)">
+                <span class="tag" *ngIf="tag">{{ tag }}</span>
+              </ng-container>
+            </section>
+          </div>
           <button class="btn-secondary" imgDownload [meal]="meal">Export Recipe as PNG</button>
         </div>
       </div>

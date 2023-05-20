@@ -14,9 +14,16 @@ import { Recipe } from "@shared/modules/meal/models/recipe.model";
 @Component({
   selector: 'app-meal',
   templateUrl: './meal.component.html',
-  styleUrls: ['./meal.component.scss']
+  styleUrls: ['./meal.component.scss'],
+  providers: [
+    {
+      provide: Window,
+      useValue: window
+    }
+  ]
 })
 export class MealComponent implements OnInit, OnDestroy {
+  public isOnMobile: boolean;
   public meal: string;
   public recipe: Recipe;
   public ingredients: (string | null)[] = [];
@@ -25,14 +32,17 @@ export class MealComponent implements OnInit, OnDestroy {
   private _recipeSub$: Subscription;
 
   constructor(
-    private route: ActivatedRoute,
-    private mealService: MealService
+    private _window: Window,
+    private _route: ActivatedRoute,
+    private _mealService: MealService
   ) { }
 
   public ngOnInit(): void {
-    this.meal = this.route.snapshot.params['meal'];
+    this.isOnMobile = this._window.matchMedia('(max-width: 767px)').matches;
 
-    this._recipeSub$ = this.mealService.getRecipe(this.meal).pipe(
+    this.meal = this._route.snapshot.params['meal'];
+
+    this._recipeSub$ = this._mealService.getRecipe(this.meal).pipe(
       tap((recipe: any) => {
         this.recipe = recipe;
 
@@ -47,7 +57,7 @@ export class MealComponent implements OnInit, OnDestroy {
     ).subscribe();
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     if(this._recipeSub$) this._recipeSub$.unsubscribe();
   }
 }

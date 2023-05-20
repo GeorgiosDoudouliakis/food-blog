@@ -11,8 +11,8 @@
 
 .meal-img-container {
   width: 300px;
-  height: 230px;
-  margin-bottom: 1rem;
+  height: 240px;
+  margin-bottom: 1.5rem;
   @media(min-width: 768px) {
     margin-bottom: 0;
   }
@@ -24,42 +24,38 @@
     text-align: center;
   }
   h2 {
-    width: 300px;
+    @include flex(row, nowrap, space-between, center);
     padding: 1rem;
     margin: 0 auto 1rem;
     > span {
       font-family: LobsterRegular;
-    }
-    @media(min-width: 768px) {
-      @include flex(row, nowrap, space-between, center);
-      width: 100%;
-      margin: 0 0 1rem;
+      color: $primary-color;
     }
   }
   .recipe-flag-img-container {
     width: 50px;
     height: 40px;
-    margin: .8rem auto 0 auto;
+  }
+  .category-yt-container {
+    @include flex(row, wrap, center, center);
+    margin-bottom: .5rem;
+    > span {
+      margin: 0 1rem;
+    }
     @media(min-width: 768px) {
-      margin: 0;
+      justify-content: flex-start;
     }
   }
-  p, a {
-    color: #fff;
-  }
   a {
-    display: block;
     font-family: LatoRegular;
     text-decoration: underline;
-    text-align: center;
-    margin-bottom: .5rem;
   }
   @media(min-width: 768px) {
     margin-left: 3rem;
     h2 {
       margin-bottom: 2rem;
     }
-    h2, p, a {
+    h2, p {
       text-align: left;
     }
   }
@@ -119,4 +115,8 @@ li {
   text-align: center;
   color: #fff;
   background: $bg-color;
+}
+
+p, a, span {
+  color: #fff;
 }
