@@ -9,8 +9,10 @@ import { Subscription, tap } from 'rxjs';
 import { CategoryMealsService } from '../../services/category-meals/category-meals.service';
 import { CountryMealsService } from '../../services/country-meals/country-meals.service';
 
+/* Place your interface imports here */
+import { Meal } from '../../interfaces/meal.interface';
+
 /* Place any other imports here */
-import { Meal } from '@shared/models/meal.model';
 import { uppercaseFirstLetter } from '@shared/modules/meals/helpers/uppercase-first-letter.helper';
 
 @Component({

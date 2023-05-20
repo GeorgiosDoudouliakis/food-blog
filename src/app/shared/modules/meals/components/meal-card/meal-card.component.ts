@@ -2,8 +2,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 
-/* Place any other imports here */
-import { Meal } from '@shared/models/meal.model';
+/* Place your interface imports here */
+import { Meal } from '../../interfaces/meal.interface';
 
 @Component({
   selector: 'app-meal-card',

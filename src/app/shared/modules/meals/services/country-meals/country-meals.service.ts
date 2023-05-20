@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 /* Place your RxJs imports here */
 import { map, Observable } from 'rxjs';
 
-/* Place any other imports here */
-import { Meal } from '@shared/models/meal.model';
+/* Place your interface imports here */
+import { Meal } from '../../interfaces/meal.interface';
 
 @Injectable()
 export class CountryMealsService {

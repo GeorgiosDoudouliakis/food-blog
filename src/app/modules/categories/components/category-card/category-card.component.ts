@@ -1,8 +1,8 @@
 /* Place your angular imports here */
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-/* Place any other imports here */
-import { Category } from '../../models/categories.model';
+/* Place your interface imports here */
+import { Category } from '../../interfaces/categories.interface';
 
 @Component({
   selector: 'app-category-card',

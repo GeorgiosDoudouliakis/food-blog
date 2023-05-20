@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 /* Place your RxJs imports here */
 import { map, Observable } from 'rxjs';
 
-/* Place any other imports here */
-import { Categories, Category } from '../models/categories.model';
+/* Place your interface imports here */
+import { Categories, Category } from '../interfaces/categories.interface';
 
 @Injectable()
 export class CategoriesService {

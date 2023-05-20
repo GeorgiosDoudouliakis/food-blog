@@ -7,8 +7,8 @@ import { Subscription, tap } from 'rxjs';
 /* Place your service imports here */
 import { CategoriesService } from '../../services/categories.service';
 
-/* Place any other imports here */
-import { Category } from '../../models/categories.model';
+/* Place your interface imports here */
+import { Category } from '../../interfaces/categories.interface';
 
 @Component({
   selector: 'app-categories',
