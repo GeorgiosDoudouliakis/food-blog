@@ -15,16 +15,19 @@ img {
     object-fit: cover;
     object-position: bottom center;
     width: 100%;
-    height: calc(100vh - 148.76px);
+    height: calc(100vh - 155.17px);
+    @media(min-width: 768px) {
+      height: calc(100vh - 139.17px);
+    }
 }
 
 .intro {
     @include flex(column, nowrap, center, center);
     position: absolute;
-    top: 71.98px;
+    top: 78.39px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 148.76px);
+    height: calc(100vh - 155.17px);
     background-color: rgba(0,0,0,0.6);
     p {
         font-size: 2rem;

@@ -6,7 +6,11 @@
           <img src="/assets/images/empty_food_img.png" class="img-responsive" alt="" />
       </ng-template>
     </div>
-    <button class="btn-secondary">
-        <a routerLink="/categories/{{ category.strCategory | lowercase }}">Show Meals</a>
-    </button>
+    <div class="card-footer">
+      <div></div>
+      <button class="btn-primary">
+          <a routerLink="/categories/{{ category.strCategory | lowercase }}">Show Meals</a>
+      </button>
+      <div></div>
+    </div>
 </article>
