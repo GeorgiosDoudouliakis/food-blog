@@ -26,12 +26,12 @@ export class MealsComponent implements OnInit, OnDestroy {
 
   constructor(
     public route: ActivatedRoute,
-    private injector: Injector
+    private _injector: Injector
   ) {
     if(this.route.snapshot.data['type'] === 'category') {
-      this._service = this.injector.get(CategoryMealsService);
+      this._service = this._injector.get(CategoryMealsService);
     } else {
-      this._service = this.injector.get(CountryMealsService);
+      this._service = this._injector.get(CountryMealsService);
     }
   }
 
@@ -48,7 +48,7 @@ export class MealsComponent implements OnInit, OnDestroy {
     return this.route.snapshot.params[type];
   }
 
-  private getMeals() {
+  private getMeals(): void {
     if(this._service instanceof CategoryMealsService) {
       this._mealsSub$ = this._service.getCategoryMeals(uppercaseFirstLetter(this.title)).pipe(
         tap((meals: Meal[]) => this.meals = meals),

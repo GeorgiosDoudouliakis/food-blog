@@ -7,17 +7,17 @@ import { AfterViewInit, Directive, ElementRef, HostListener, Renderer2 } from '@
 export class CardHoverDirective implements AfterViewInit {
   public arrow: HTMLSpanElement;
 
-  constructor(private elRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private _elRef: ElementRef, private _renderer: Renderer2) { }
 
   public ngAfterViewInit(): void {
-    this.arrow = this.elRef.nativeElement.querySelector('span');
+    this.arrow = this._elRef.nativeElement.querySelector('span');
   }
 
   @HostListener('mouseover') public onMouseOver(): void {
-    this.renderer.setStyle(this.arrow, 'transform', 'translateX(8px)');
+    this._renderer.setStyle(this.arrow, 'transform', 'translateX(8px)');
   }
 
   @HostListener('mouseout') public onMouseOut(): void {
-    this.renderer.removeStyle(this.arrow, 'transform');
+    this._renderer.removeStyle(this.arrow, 'transform');
   }
 }

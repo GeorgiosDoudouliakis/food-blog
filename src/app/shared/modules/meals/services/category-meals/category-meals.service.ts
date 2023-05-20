@@ -11,11 +11,11 @@ import { Meal } from '@shared/models/meal.model';
 @Injectable()
 export class CategoryMealsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getCategoryMeals(category: string): Observable<Meal[]> {
     return of(null).pipe(
-      concatMap(() => this.http.get<{ meals: Meal[] }>(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)),
+      concatMap(() => this._http.get<{ meals: Meal[] }>(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)),
       pluck('meals')
     )
   }

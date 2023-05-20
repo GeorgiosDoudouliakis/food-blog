@@ -13,24 +13,24 @@ export class ImgDownloadDirective implements AfterViewInit {
   @Input() public meal: string;
 
   constructor(
-    private elRef: ElementRef,
-    @Inject(DOCUMENT) private document: Document
+    private _elRef: ElementRef,
+    @Inject(DOCUMENT) private _document: Document
   ) { }
 
   public ngAfterViewInit(): void {
-    this._convertedEl = this.elRef.nativeElement.parentElement.parentElement.parentElement.querySelector('#instructions-ingredients-container');
+    this._convertedEl = this._elRef.nativeElement.parentElement.parentElement.parentElement.querySelector('#instructions-ingredients-container');
   }
 
   @HostListener('click') public onConvertHTMLToPNG(): void {
     htmlToImage.toPng(this._convertedEl).then((dataUrl) => {
       const img = new Image();
       img.src = dataUrl;
-      const anchor = this.document.createElement('a');
+      const anchor = this._document.createElement('a');
       anchor.href = img.src;
       anchor.download = `${this.meal}.png`;
-      this.document.body.appendChild(anchor);
+      this._document.body.appendChild(anchor);
       anchor.click();
-      this.document.body.removeChild(anchor);
+      this._document.body.removeChild(anchor);
     })
   }
 }

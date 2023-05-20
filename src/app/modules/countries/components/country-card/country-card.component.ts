@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 export class CountryCardComponent {
   @Input() public country: { strArea: string };
 
-  constructor(private router: Router) { }
+  constructor(private _router: Router) { }
 
   public navigateToCountryMeals(country: string): void {
-    this.router.navigateByUrl(`/countries/${country.toLowerCase()}`);
+    this._router.navigateByUrl(`/countries/${country.toLowerCase()}`);
   }
 }

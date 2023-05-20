@@ -12,11 +12,11 @@ import { Recipe } from "../../modules/meal/models/recipe.model";
   providedIn: 'root'
 })
 export class RecipeService {
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getRecipe(meal: string): Observable<Recipe[]> {
     return of(null).pipe(
-      concatMap(() => this.http.get<{ meals: Recipe[] }>(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)),
+      concatMap(() => this._http.get<{ meals: Recipe[] }>(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)),
       pluck('meals')
     )
   }

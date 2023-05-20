@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   private _mealsSub$: Subscription;
   private _mealSearchHandler: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private _recipeService: RecipeService) {}
 
   public ngOnInit(): void {
     this._mealsSub$ = this._mealSearchHandler.pipe(
@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit, OnDestroy {
       switchMap((meal: string) => {
         if(meal) {
           this.loading = true;
-          return this.recipeService.getRecipe(meal)
+          return this._recipeService.getRecipe(meal)
         }
         return of([]);
       }),
