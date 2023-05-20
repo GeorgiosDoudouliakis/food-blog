@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 import { filter, map, Observable } from "rxjs";
 
 /* Place your service imports here */
-import { Recipe } from "@shared/modules/meal/models/recipe.model";
+import { Recipe } from "../../../interfaces/recipe.interface";
 
 @Injectable()
 export class MealService {

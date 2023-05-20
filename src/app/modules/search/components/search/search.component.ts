@@ -16,7 +16,7 @@ import {
 import { SearchService } from "../../services/search/search.service";
 
 /* Place any other imports here */
-import { Recipe } from "@shared/modules/meal/models/recipe.model";
+import { Recipe } from "@shared/interfaces/recipe.interface";
 
 @Component({
   selector: 'app-search',

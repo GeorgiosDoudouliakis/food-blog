@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 
 /* Place any other imports here */
-import { Recipe } from "@shared/modules/meal/models/recipe.model";
+import { Recipe } from "@shared/interfaces/recipe.interface";
 
 @Injectable()
 export class SearchService {

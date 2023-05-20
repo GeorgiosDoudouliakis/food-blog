@@ -9,7 +9,7 @@ import { Subscription, tap } from "rxjs";
 import { MealService } from "@shared/modules/meal/services/meal.service";
 
 /* Place any other imports here */
-import { Recipe } from "@shared/modules/meal/models/recipe.model";
+import { Recipe } from "../../../../interfaces/recipe.interface";
 
 @Component({
   selector: 'app-meal',
