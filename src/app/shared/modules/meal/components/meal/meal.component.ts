@@ -8,22 +8,15 @@ import { Subscription, tap } from "rxjs";
 /* Place your service imports here */
 import { MealService } from "@shared/modules/meal/services/meal.service";
 
-/* Place any other imports here */
+/* Place your interface imports here */
 import { Recipe } from "../../../../interfaces/recipe.interface";
 
 @Component({
   selector: 'app-meal',
   templateUrl: './meal.component.html',
-  styleUrls: ['./meal.component.scss'],
-  providers: [
-    {
-      provide: Window,
-      useValue: window
-    }
-  ]
+  styleUrls: ['./meal.component.scss']
 })
 export class MealComponent implements OnInit, OnDestroy {
-  public isOnMobile: boolean;
   public meal: string;
   public recipe: Recipe;
   public ingredients: (string | null)[] = [];
@@ -32,14 +25,11 @@ export class MealComponent implements OnInit, OnDestroy {
   private _recipeSub$: Subscription;
 
   constructor(
-    private _window: Window,
     private _route: ActivatedRoute,
     private _mealService: MealService
   ) { }
 
   public ngOnInit(): void {
-    this.isOnMobile = this._window.matchMedia('(max-width: 767px)').matches;
-
     this.meal = this._route.snapshot.params['meal'];
 
     this._recipeSub$ = this._mealService.getRecipe(this.meal).pipe(

@@ -1,10 +1,7 @@
 <section class="container py-2">
   <ng-container *ngIf="!loading; else loadingTpl">
     <ng-container *ngIf="recipe">
-      <div class="recipe-img-info-container">
-        <div *ngIf="!isOnMobile" class="meal-img-container">
-          <img [src]="recipe.strMealThumb" class="img-responsive" width="50" height="40" [alt]="recipe.strMeal" />
-        </div>
+      <div class="recipe-info-container">
         <div class="recipe-info">
           <h2>
             <span>{{ recipe.strMeal }}</span>

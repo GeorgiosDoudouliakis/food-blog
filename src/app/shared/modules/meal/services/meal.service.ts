@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 /* Place your RxJs imports here */
 import { filter, map, Observable } from "rxjs";
 
-/* Place your service imports here */
+/* Place your interface imports here */
 import { Recipe } from "../../../interfaces/recipe.interface";
 
 @Injectable()
