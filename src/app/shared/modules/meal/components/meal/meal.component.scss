@@ -20,7 +20,7 @@
 
 .recipe-info {
   width: 100%;
-  h2, p {
+  p {
     text-align: center;
   }
   h2 {
@@ -29,6 +29,7 @@
     margin: 0 auto 1rem;
     > span {
       font-family: LobsterRegular;
+      text-align: left;
       color: $primary-color;
     }
   }
@@ -55,7 +56,7 @@
     h2 {
       margin-bottom: 2rem;
     }
-    h2, p {
+    p {
       text-align: left;
     }
   }
