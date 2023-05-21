@@ -6,10 +6,15 @@ import { CommonModule} from "@angular/common";
 /* Place your component imports here */
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { CategoryMealsComponent } from "./components/category-meals/category-meals.component";
 import { LoaderComponent } from "@shared/components/loader/loader.component";
 
+/* Place your module imports here */
+import { MealsModule } from "@shared/modules/meals/meals.module";
+
 /* Place your service imports here */
-import { CategoriesService } from './services/categories.service';
+import { CategoriesService } from './services/categories/categories.service';
+import { CategoryMealsService } from "./services/category-meals/category-meals.service";
 
 const routes = [
   {
@@ -18,10 +23,7 @@ const routes = [
   },
   {
     path: ':category',
-    loadChildren: () => import('../../shared/modules/meals/meals.module').then(m => m.MealsModule),
-    data: {
-      type: 'category'
-    }
+    component: CategoryMealsComponent
   },
   {
     path: ':country/:meal',
@@ -35,16 +37,18 @@ const routes = [
 @NgModule({
   declarations: [
     CategoriesComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
+    CategoryMealsComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
+    MealsModule,
     LoaderComponent
   ],
   exports: [
     RouterModule
   ],
-  providers: [CategoriesService]
+  providers: [CategoriesService, CategoryMealsService]
 })
 export class CategoriesModule { }

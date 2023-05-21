@@ -5,7 +5,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Subscription, tap} from 'rxjs';
 
 /* Place your service imports here */
-import { CountriesListService } from '../../services/countries-list.service';
+import { CountriesListService } from '../../services/countries-list/countries-list.service';
 
 @Component({
   selector: 'app-countries',

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 
 /* Place your interface imports here */
-import { Categories, Category } from '../interfaces/categories.interface';
+import { Categories, Category } from '../../interfaces/categories.interface';
 
 @Injectable()
 export class CategoriesService {

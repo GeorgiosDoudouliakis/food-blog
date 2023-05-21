@@ -5,7 +5,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, tap } from 'rxjs';
 
 /* Place your service imports here */
-import { CategoriesService } from '../../services/categories.service';
+import { CategoriesService } from '../../services/categories/categories.service';
 
 /* Place your interface imports here */
 import { Category } from '../../interfaces/categories.interface';
