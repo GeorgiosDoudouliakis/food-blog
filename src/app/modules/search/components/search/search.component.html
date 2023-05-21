@@ -7,11 +7,11 @@
   <ng-container *ngIf="!loading; else loadingTpl">
     <ng-container *ngIf="mealForSearch && meals">
       <p class="meals-found">Meals found: {{ meals.length }}</p>
-      <ul class="grid">
-        <li *ngFor="let meal of meals">
-          <a routerLink="/search/{{ meal.strMeal }}">{{ meal.strMeal }}</a>
-        </li>
-      </ul>
+      <section class="grid">
+        <article *ngFor="let meal of meals" class="card meal-card" role="link" (click)="navigateToMeal(meal.strMeal)">
+          <h3>{{ meal.strMeal }}</h3>
+        </article>
+      </section>
     </ng-container>
 
     <ng-container *ngIf="mealForSearch && !meals">

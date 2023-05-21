@@ -1,5 +1,6 @@
 /* Place your angular imports here */
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
 
 /* Place your RxJs imports here */
 import {
@@ -30,7 +31,11 @@ export class SearchComponent implements OnInit, OnDestroy {
   private _mealsSub$: Subscription;
   private _mealSearchHandler: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
-  constructor(private _searchService: SearchService) {}
+  constructor(
+    private _searchService: SearchService,
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) {}
 
   public ngOnInit(): void {
     this._mealsSub$ = this._mealSearchHandler.pipe(
@@ -54,5 +59,9 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   public onMealSearch(): void {
     this._mealSearchHandler.next(this.mealForSearch);
+  }
+
+  public navigateToMeal(meal: string | null): void {
+    this._router.navigate([meal], { relativeTo: this._route });
   }
 }

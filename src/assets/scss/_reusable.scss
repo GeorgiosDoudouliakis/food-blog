@@ -1,4 +1,5 @@
 @import './variables';
+@import './mixins';
 
 .container {
     width: 90%;
@@ -64,6 +65,28 @@
 
 .card {
     background: $bg-color;
+    &.meal-card {
+      @include flex(row, nowrap, center, center);
+      position: relative;
+      height: 90px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      cursor: pointer;
+      &:hover::after {
+        @include flex(row, nowrap, center, center);
+        font-size: 1rem;
+        font-family: LatoRegular;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: 'SHOW RECIPE';
+        width: 100%;
+        height: 100%;
+        background: $primary-color;
+        color: #fff;
+        letter-spacing: .1rem;
+      }
+    }
 }
 
 .img-responsive {
