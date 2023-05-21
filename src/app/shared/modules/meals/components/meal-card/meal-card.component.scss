@@ -10,7 +10,7 @@
   position: relative;
   &:hover::after {
     @include flex(row, nowrap, center, center);
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-family: LatoRegular;
     position: absolute;
     top: 0;
@@ -22,9 +22,9 @@
     color: #fff;
     letter-spacing: .1rem;
   }
-}
-
-h3 {
-  text-align: center;
-  color: #fff;
+  h3 {
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+  }
 }
