@@ -1,12 +1,11 @@
 <section class="container py-2">
   <h2>SEARCH MEALS</h2>
-  <div>
+  <div class="search-input-container">
     <label for="search"></label>
     <input type="text" id="search" placeholder="Search meal..." [(ngModel)]="mealForSearch" (ngModelChange)="onMealSearch()" autocomplete="off"/>
   </div>
   <ng-container *ngIf="!loading; else loadingTpl">
     <ng-container *ngIf="mealForSearch && meals">
-      <p class="meals-found">Meals found: {{ meals.length }}</p>
       <section class="grid">
         <article *ngFor="let meal of meals" class="card meal-card" role="link" (click)="navigateToMeal(meal.strMeal)">
           <h3>{{ meal.strMeal }}</h3>
@@ -15,7 +14,11 @@
     </ng-container>
 
     <ng-container *ngIf="mealForSearch && !meals">
-      <p class="no-meals-found">No meals found!</p>
+      <div class="no-meals-found-container">  
+        <div></div>
+        <p>NO MEALS FOUND</p>
+        <div></div>
+      </div>
     </ng-container>
   </ng-container>
 
