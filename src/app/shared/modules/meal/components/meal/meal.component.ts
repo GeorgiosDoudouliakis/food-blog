@@ -19,8 +19,8 @@ import { Recipe } from "../../../../interfaces/recipe.interface";
 export class MealComponent implements OnInit, OnDestroy {
   public meal: string;
   public recipe: Recipe;
-  public ingredients: (string | null)[] = [];
-  public measures: (string | null)[] = [];
+  public ingredients: string[] = [];
+  public measures: string[] = [];
   public loading: boolean = true;
   private _recipeSub$: Subscription;
 

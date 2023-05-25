@@ -61,7 +61,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     this._mealSearchHandler.next(this.mealForSearch);
   }
 
-  public navigateToMeal(meal: string | null): void {
+  public navigateToMeal(meal: string): void {
     this._router.navigate([meal], { relativeTo: this._route });
   }
 }
