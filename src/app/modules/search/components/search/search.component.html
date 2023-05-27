@@ -2,7 +2,7 @@
   <h2>SEARCH MEALS</h2>
   <div class="search-input-container">
     <label for="search"></label>
-    <input type="text" id="search" placeholder="Search meal..." [(ngModel)]="mealForSearch" (ngModelChange)="onMealSearch()" autocomplete="off"/>
+    <input type="text" id="search" placeholder="Enter meal name, e.g. moussaka" [(ngModel)]="mealForSearch" (ngModelChange)="onMealSearch()" autocomplete="off"/>
   </div>
   <ng-container *ngIf="!loading; else loadingTpl">
     <ng-container *ngIf="mealForSearch && meals">
