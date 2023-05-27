@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'meals/:meal',
     loadChildren: () => import('./shared/modules/meal/meal.module').then(({ MealModule }) => MealModule)
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./components/404/not-found.component').then(({ NotFoundComponent }) => NotFoundComponent)
   }
 ];
 
