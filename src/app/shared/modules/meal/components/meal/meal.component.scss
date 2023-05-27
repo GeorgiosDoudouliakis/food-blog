@@ -19,7 +19,6 @@
     padding: 1rem;
     margin: 0 auto 1rem;
     > span {
-      font-family: LatoRegular;
       text-align: left;
       color: $primary-color;
     }
@@ -39,7 +38,6 @@
     }
   }
   a {
-    font-family: LatoRegular;
     text-decoration: underline;
   }
   @media(min-width: 768px) {

@@ -75,7 +75,6 @@
       &:hover::after {
         @include flex(row, nowrap, center, center);
         font-size: 1rem;
-        font-family: LatoRegular;
         position: absolute;
         top: 0;
         left: 0;
