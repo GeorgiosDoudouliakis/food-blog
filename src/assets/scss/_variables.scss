@@ -3,11 +3,6 @@ $secondary-color: #24292d;
 $bg-color: lighten($secondary-color, 5%);
 
 @font-face {
-    font-family: LobsterRegular;
-    src: url('../fonts/Lobster-Regular.ttf');
-}
-
-@font-face {
     font-family: LatoRegular;
     src: url('../fonts/Lato-Regular.ttf');
 }
