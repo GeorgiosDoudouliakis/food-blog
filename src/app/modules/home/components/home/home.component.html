@@ -1,0 +1,28 @@
+<div class="hero">
+  <img src="/assets/images/hero.jpg" class="img-responsive" alt="">
+</div>
+<div class="intro">
+  <h1>FOOD BLOG</h1>
+  <p>Best recipes with the best ingredients!</p>
+</div>
+<button class="btn-secondary">
+  <a routerLink="/search">Search Recipe</a>
+</button>
+<div class="container">
+  <h2>MEAL OF THE DAY</h2>
+  <ng-container *ngIf="!loading; else loadingTpl">  
+    <article>
+      <h3>{{ randomMeal.strMeal }}</h3>
+      <div>
+        <img [src]="randomMeal.strMealThumb" class="img-responsive" alt="{{ randomMeal.strMeal }}">
+      </div>
+      <button class="btn-secondary">
+        <a routerLink="/meals/{{randomMeal.strMeal}}">More Details</a>
+      </button>
+    </article>
+  </ng-container>
+
+  <ng-template #loadingTpl>
+    <app-loader></app-loader>
+  </ng-template>
+</div>

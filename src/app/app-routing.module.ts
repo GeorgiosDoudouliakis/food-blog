@@ -6,22 +6,26 @@ const routes: Routes = [
   {
     path: '',
     title: 'Food Blog',
-    loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent)
+    loadChildren: () => import('./modules/home/home.module').then(({ HomeModule }) => HomeModule)
   },
   {
     path: 'categories',
     title: 'Food Blog | Categories',
-    loadChildren: () => import('./modules/categories/categories.module').then(m => m.CategoriesModule)
+    loadChildren: () => import('./modules/categories/categories.module').then(({ CategoriesModule }) => CategoriesModule)
   },
   {
     path: 'countries',
     title: 'Food Blog | Countries',
-    loadChildren: () => import('./modules/countries/countries.module').then(m => m.CountriesModule)
+    loadChildren: () => import('./modules/countries/countries.module').then(({ CountriesModule }) => CountriesModule)
   },
   {
     path: 'search',
     title: 'Food Blog | Search',
-    loadChildren: () => import('./modules/search/search.module').then(m => m.SearchModule)
+    loadChildren: () => import('./modules/search/search.module').then(({ SearchModule }) => SearchModule)
+  },
+  {
+    path: 'meals/:meal',
+    loadChildren: () => import('./shared/modules/meal/meal.module').then(({ MealModule }) => MealModule)
   }
 ];
 
