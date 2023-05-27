@@ -15,17 +15,19 @@
     text-align: center;
   }
   h2 {
-    @include flex(row, nowrap, space-between, center);
+    @include flex(row, nowrap, space-between, flex-start);
     padding: 1rem;
     margin: 0 auto 1rem;
     > span {
+      width: 300px;
       text-align: left;
       color: $primary-color;
     }
   }
   .recipe-flag-img-container {
-    width: 50px;
-    height: 40px;
+    width: 40px;
+    height: 30px;
+    margin-left: .5rem;
   }
   .category-yt-container {
     @include flex(row, wrap, center, center);
@@ -43,9 +45,22 @@
   @media(min-width: 768px) {
     h2 {
       margin-bottom: 2rem;
+      > span {
+        width: 500px;
+      }
     }
     p {
       text-align: left;
+    }
+  }
+  @media(min-width: 1024px) {
+    h2 > span {
+      width: auto;
+    }
+    .recipe-flag-img-container {
+      width: 50px;
+      height: 40px;
+      margin-left: 0;
     }
   }
 }
