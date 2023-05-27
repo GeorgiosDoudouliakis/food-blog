@@ -65,6 +65,19 @@ ul {
     a {
       position: relative;
       transition: .4s ease-in-out;
+      &::after {
+        position: absolute;
+        bottom: 10px;
+        left: 1rem;
+        width: 0;
+        height: 1px;
+        content: "";
+        background: $primary-color;
+        transition: .4s ease-in-out;
+      }
+      &:hover::after {
+        width: calc(100% - 2rem);
+      }
       &:hover, &.active {
         color: #fff;
       }
