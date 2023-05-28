@@ -41,13 +41,18 @@
 button {
     width: 100%;
     margin-bottom: 2rem;
+    &.search {
+      > a {
+        font-size: 1.2rem;
+      }
+    }
     > a {
-        width: 100%;
-        color: $secondary-color;
-        transition: .4s ease-in-out;
-        &:hover {
-            color: $primary-color;
-        }
+      width: 100%;
+      color: $secondary-color;
+      transition: .4s ease-in-out;
+      &:hover {
+          color: $primary-color;
+      }
     }
 }
 
