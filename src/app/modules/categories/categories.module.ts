@@ -27,10 +27,7 @@ const routes = [
   },
   {
     path: ':country/:meal',
-    loadChildren: () => import('../../shared/modules/meal/meal.module').then(m => m.MealModule),
-    data: {
-      type: 'categories'
-    }
+    loadChildren: () => import('../../shared/modules/meal/meal.module').then(({ MealModule }) => MealModule)
   }
 ];
 

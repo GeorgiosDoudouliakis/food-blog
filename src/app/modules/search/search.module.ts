@@ -18,9 +18,9 @@ const routes = [
   },
   {
     path: ':meal',
-    loadChildren: () => import('../../shared/modules/meal/meal.module').then(m => m.MealModule)
+    loadChildren: () => import('../../shared/modules/meal/meal.module').then(({ MealModule }) => MealModule)
   }
-]
+];
 
 @NgModule({
   declarations: [
