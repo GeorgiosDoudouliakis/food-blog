@@ -1,5 +1,5 @@
 /* Place your angular imports here */
-import {AfterViewInit, Directive, ElementRef, HostListener, Inject, Input } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostListener, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 /* Place any other imports here */
@@ -18,11 +18,11 @@ export class ImgDownloadDirective implements AfterViewInit {
   ) { }
 
   public ngAfterViewInit(): void {
-    this._convertedEl = this._elRef.nativeElement.parentElement.parentElement.parentElement.querySelector('#instructions-ingredients-container');
+    this._convertedEl = this._elRef.nativeElement.parentElement.parentElement.parentElement;
   }
 
   @HostListener('click') public onConvertHTMLToPNG(): void {
-    htmlToImage.toPng(this._convertedEl).then((dataUrl) => {
+    htmlToImage.toPng(this._convertedEl, { width: this._convertedEl.offsetWidth + 100 }).then((dataUrl: string) => {
       const img = new Image();
       img.src = dataUrl;
       const anchor = this._document.createElement('a');
