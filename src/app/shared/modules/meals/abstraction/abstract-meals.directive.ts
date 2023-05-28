@@ -11,7 +11,7 @@ import { Meal } from "@shared/modules/meals/interfaces/meal.interface";
 /* Place any other imports here */
 import { MealsType } from "@shared/modules/meals/enums/meals-type.enum";
 import { AbstractMealsServiceDirective } from "@shared/modules/meals/abstraction/abstract-meals-service.directive";
-import { uppercaseFirstLetter } from "@shared/modules/meals/helpers/uppercase-first-letter.helper";
+import { uppercaseFirstLetter } from "@shared/helpers/uppercase-first-letter.helper";
 
 @Directive()
 export abstract class AbstractMealsDirective implements OnInit, OnDestroy {

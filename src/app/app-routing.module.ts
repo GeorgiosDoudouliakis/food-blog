@@ -1,26 +1,25 @@
 /* Place your angular imports here */
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes, TitleStrategy } from '@angular/router';
+
+/* Place your service imports here */
+import { CustomTitleStrategyService } from "./services/custom-title-strategy.service";
 
 const routes: Routes = [
   {
     path: '',
-    title: 'Food Blog',
     loadChildren: () => import('./modules/home/home.module').then(({ HomeModule }) => HomeModule)
   },
   {
     path: 'categories',
-    title: 'Food Blog | Categories',
     loadChildren: () => import('./modules/categories/categories.module').then(({ CategoriesModule }) => CategoriesModule)
   },
   {
     path: 'countries',
-    title: 'Food Blog | Countries',
     loadChildren: () => import('./modules/countries/countries.module').then(({ CountriesModule }) => CountriesModule)
   },
   {
     path: 'search',
-    title: 'Food Blog | Search',
     loadChildren: () => import('./modules/search/search.module').then(({ SearchModule }) => SearchModule)
   },
   {
@@ -37,6 +36,12 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     preloadingStrategy: PreloadAllModules
   })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    {
+      provide: TitleStrategy,
+      useClass: CustomTitleStrategyService
+    }
+  ]
 })
 export class AppRoutingModule { }
