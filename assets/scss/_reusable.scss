@@ -1,0 +1,96 @@
+@import './variables';
+@import './mixins';
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.p-1 {
+    padding: 1rem;
+}
+
+.py-1 {
+    padding: 1rem 0;
+}
+
+.py-2 {
+    padding: 2rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: auto;
+    gap: 20px 25px;
+    @media(min-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media(min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media(min-width: 1280px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.btn-primary {
+    border: 1px solid $primary-color;
+    a {
+        font-size: 1rem;
+        padding: 0.3rem 0.8rem;
+        color: #fff;
+        background: $secondary-color;
+        transition: .4s ease-in-out;
+        &:hover {
+            background: $primary-color;
+            color: $secondary-color;
+        }
+    }
+}
+
+.btn-secondary {
+    font-size: 1rem;
+    color: $secondary-color;
+    background: $primary-color;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid $primary-color;
+    transition: .4s ease-in-out;
+    &:hover {
+        color: #fff;
+        background: $secondary-color;
+    }
+}
+
+.card {
+    background: $bg-color;
+    &.meal-card {
+      @include flex(row, nowrap, center, center);
+      position: relative;
+      height: 80px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      cursor: pointer;
+      &:hover::after {
+        @include flex(row, nowrap, center, center);
+        font-size: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: 'SHOW RECIPE';
+        width: 100%;
+        height: 100%;
+        background: $primary-color;
+        color: #fff;
+        letter-spacing: .1rem;
+      }
+    }
+}
+
+.img-responsive {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
